@@ -10,7 +10,37 @@ import SwiftUI
 struct GridContainersView: View {
     @State private var searchText = ""
     @State private var showingSheet = false
+    @State private var isEditing = false
 
+    let menuItems = ContextMenu {
+        Button {
+            
+        } label : {
+            Label("Unfavorite", systemImage: "heart.slash")
+        }
+        
+        Button {
+            
+        } label : {
+            Label("Edit", systemImage: "square.and.pencil")
+        }
+        
+        Button {
+            
+        } label : {
+            Label("Duplicate", systemImage: "doc.on.doc")
+        }
+        
+        Divider()
+        
+        Button(role: .destructive) {
+            
+        } label: {
+            Label("Delete", systemImage: "trash")
+                    
+        }
+        
+    }
     
     private let numberOfColumns = [
         GridItem(.flexible()),
@@ -25,6 +55,9 @@ struct GridContainersView: View {
         }
     }
     
+    private var shouldShowMenu = true
+
+    
     var body: some View {
         
         NavigationStack {
@@ -34,6 +67,7 @@ struct GridContainersView: View {
                         ForEach(searchResults) { container in
                             if container.isFavorite {
                                 ContainerView(container: container)
+                                    .contextMenu(shouldShowMenu ? menuItems : nil)
                             }
                         }
                     }
@@ -54,6 +88,7 @@ struct GridContainersView: View {
                         ForEach(searchResults) { container in
                             if !container.isFavorite {
                                 ContainerView(container: container)
+                                    .contextMenu(shouldShowMenu ? menuItems : nil)
                             }
                         }
                     }
@@ -72,9 +107,7 @@ struct GridContainersView: View {
             .navigationBarTitleDisplayMode(.large)
             .navigationBarTitle(Text("Select a Container"))
             .toolbar {
-                
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    
                     Button {
                         showingSheet.toggle()
                     } label: {
