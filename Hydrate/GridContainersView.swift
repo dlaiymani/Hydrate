@@ -12,36 +12,6 @@ struct GridContainersView: View {
     @State private var showingSheet = false
     @State private var isEditing = false
 
-    let menuItems = ContextMenu {
-        Button {
-            
-        } label : {
-            Label("Unfavorite", systemImage: "heart.slash")
-        }
-        
-        Button {
-            
-        } label : {
-            Label("Edit", systemImage: "square.and.pencil")
-        }
-        
-        Button {
-            
-        } label : {
-            Label("Duplicate", systemImage: "doc.on.doc")
-        }
-        
-        Divider()
-        
-        Button(role: .destructive) {
-            
-        } label: {
-            Label("Delete", systemImage: "trash")
-                    
-        }
-        
-    }
-    
     private let numberOfColumns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -67,7 +37,35 @@ struct GridContainersView: View {
                         ForEach(searchResults) { container in
                             if container.isFavorite {
                                 ContainerView(container: container)
-                                    .contextMenu(shouldShowMenu ? menuItems : nil)
+                                    .contextMenu {
+                                        Button {
+                                            
+                                        } label : {
+                                            Label("Unfavorite", systemImage: "heart.slash")
+                                        }
+                                        
+                                        
+                                        Button {
+                                            self.showingSheet.toggle()
+                                        } label : {
+                                            Label("Edit", systemImage: "square.and.pencil")
+                                        }
+                                        
+                                        Button {
+                                            
+                                        } label : {
+                                            Label("Duplicate", systemImage: "doc.on.doc")
+                                        }
+                                        
+                                        Divider()
+                                        
+                                        Button(role: .destructive) {
+                                            
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                                    
+                                        }
+                                    }
                             }
                         }
                     }
@@ -88,7 +86,35 @@ struct GridContainersView: View {
                         ForEach(searchResults) { container in
                             if !container.isFavorite {
                                 ContainerView(container: container)
-                                    .contextMenu(shouldShowMenu ? menuItems : nil)
+                                    .contextMenu {
+                                        Button {
+                                            
+                                        } label : {
+                                            Label("Unfavorite", systemImage: "heart.slash")
+                                        }
+                                        
+                                        
+                                        Button {
+                                            self.showingSheet.toggle()
+                                        } label : {
+                                            Label("Edit", systemImage: "square.and.pencil")
+                                        }
+                                        
+                                        Button {
+                                            
+                                        } label : {
+                                            Label("Duplicate", systemImage: "doc.on.doc")
+                                        }
+                                        
+                                        Divider()
+                                        
+                                        Button(role: .destructive) {
+                                            
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                                    
+                                        }
+                                    }
                             }
                         }
                     }
@@ -118,8 +144,9 @@ struct GridContainersView: View {
             }
         }
         .searchable(text: $searchText)
-        .sheet(isPresented: $showingSheet) {
+        .fullScreenCover(isPresented: $showingSheet) {
             AddContainerView()
+                
         }
     }
 }
