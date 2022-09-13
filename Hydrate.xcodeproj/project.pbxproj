@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA26A36E28CC8CC30005D8B6 /* GridContainersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26A36D28CC8CC30005D8B6 /* GridContainersView.swift */; };
 		AA41202928C77D8500A1E65A /* PlusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41202828C77D8500A1E65A /* PlusButtonView.swift */; };
+		AA5EBBFA28D0DBF000B2BD46 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */; };
 		AA5F1CE928CF04940070229D /* AddContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5F1CE828CF04940070229D /* AddContainerView.swift */; };
 		AA5F1CEB28CF14A90070229D /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5F1CEA28CF14A90070229D /* IconPickerView.swift */; };
 		AA7210E828CCC7480041779D /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7210E728CCC7480041779D /* ContainerView.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		AA26A36D28CC8CC30005D8B6 /* GridContainersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContainersView.swift; sourceTree = "<group>"; };
 		AA41202828C77D8500A1E65A /* PlusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonView.swift; sourceTree = "<group>"; };
+		AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AA5F1CE828CF04940070229D /* AddContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContainerView.swift; sourceTree = "<group>"; };
 		AA5F1CEA28CF14A90070229D /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		AA7210E728CCC7480041779D /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				AAA4E3D328C23CC100C366B9 /* Assets.xcassets */,
 				AAA4E3D528C23CC100C366B9 /* Preview Content */,
 				AA7210EC28CCE2E20041779D /* SearchBar.swift */,
+				AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */,
 			);
 			path = Hydrate;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				AA26A36E28CC8CC30005D8B6 /* GridContainersView.swift in Sources */,
 				AA41202928C77D8500A1E65A /* PlusButtonView.swift in Sources */,
 				AA7210ED28CCE2E20041779D /* SearchBar.swift in Sources */,
+				AA5EBBFA28D0DBF000B2BD46 /* SettingsView.swift in Sources */,
 				AAA4E3D228C23CC000C366B9 /* MainView.swift in Sources */,
 				AAA4E3E228C2491000C366B9 /* MainRingView.swift in Sources */,
 				AAA4E3E428C2535A00C366B9 /* TabsView.swift in Sources */,

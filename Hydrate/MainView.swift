@@ -9,6 +9,9 @@ import SwiftUI
 
 struct MainView: View {
     @State private var volumeInPercent = 50.0
+    
+    @State private var showProfileSheet = false
+    
     var minVolume = 0.0
     var maxVolume = 100.0
     var body: some View {
@@ -42,12 +45,17 @@ struct MainView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: StatsView()) {
-                        Image(systemName: "person.circle.fill")
+                    Button {
+                        showProfileSheet = true
+                    } label: {
+                        Image(systemName: "gear")
                             .foregroundColor(.purple)
                     }
                 }
             }
+        }
+        .sheet(isPresented: $showProfileSheet) {
+            SettingsView(showProfileSheet: $showProfileSheet)
         }
         
     }
