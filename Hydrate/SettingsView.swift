@@ -15,8 +15,8 @@ struct SettingsView: View {
 
 
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            NavigationStack {
+        NavigationStack  {
+            ZStack(alignment: .topTrailing) {
                 VStack {
                     
                     // Message et icone pour passer pro
@@ -24,7 +24,7 @@ struct SettingsView: View {
                     List {
                         Section("") {
                             NavigationLink {
-                                EmptyView()
+                                ProfileView()
                             } label: {
                                 Label("Profile", systemImage: "person.fill")
                                     .foregroundColor(.purple)
@@ -45,6 +45,14 @@ struct SettingsView: View {
                                     .foregroundColor(.purple)
                                    .font(.title3)
                             }
+                            NavigationLink {
+                                EmptyView()
+                            } label: {
+                                Label("Siri Shortcuts", systemImage: "square.2.layers.3d.bottom.filled")
+                                     .foregroundColor(.purple)
+                                   .font(.title3)
+                            }
+                            
                         }
                         
                         
@@ -97,11 +105,7 @@ struct SettingsView: View {
                                 Text("hydrate_app@icloud.com")
                                     .font(.subheadline)
                                     .foregroundColor(.mint)
-
-                                    
                             }
-                            
-                            
                         }
                         
                         Section() {
@@ -134,23 +138,23 @@ struct SettingsView: View {
                     }
                 }
                 .navigationTitle("Settings")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            showProfileSheet = false
+                        } label: {
+                            Image(systemName: "x.circle.fill")
+                           //     .font(.title)
+                                .foregroundColor(Color(.systemGray4))
+                        }
+                    }
+                }
             }
-            
-            Button {
-                showProfileSheet = false
-            } label: {
-                Image(systemName: "x.circle.fill")
-                    .font(.title)
-                    .foregroundColor(Color(.systemGray4))
-            }
-            .padding()
-            
-            
         }
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
+struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(showProfileSheet: .constant(true))
     }
