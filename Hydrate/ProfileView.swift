@@ -135,11 +135,7 @@ struct ProfileView: View {
                     }
                     .font(.title3)
                     .foregroundColor(.blue)
-                    
-                   
                 }
-                
-                
             }
         }
         .navigationTitle("Profile")
