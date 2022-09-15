@@ -16,6 +16,7 @@
 		AA7210E828CCC7480041779D /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7210E728CCC7480041779D /* ContainerView.swift */; };
 		AA7210EA28CCC7A20041779D /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7210E928CCC7A20041779D /* Container.swift */; };
 		AA7210ED28CCE2E20041779D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7210EC28CCE2E20041779D /* SearchBar.swift */; };
+		AA9EE38A28D315C30045D912 /* ConfettiModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE38928D315C30045D912 /* ConfettiModifier.swift */; };
 		AAA4E3D028C23CC000C366B9 /* HydrateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */; };
 		AAA4E3D228C23CC000C366B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3D128C23CC000C366B9 /* MainView.swift */; };
 		AAA4E3D428C23CC100C366B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA4E3D328C23CC100C366B9 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		AA7210E728CCC7480041779D /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		AA7210E928CCC7A20041779D /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		AA7210EC28CCE2E20041779D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		AA9EE38928D315C30045D912 /* ConfettiModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiModifier.swift; sourceTree = "<group>"; };
 		AAA4E3CC28C23CC000C366B9 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateApp.swift; sourceTree = "<group>"; };
 		AAA4E3D128C23CC000C366B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				AAA4E3D328C23CC100C366B9 /* Assets.xcassets */,
 				AAA4E3D528C23CC100C366B9 /* Preview Content */,
 				AA7210EC28CCE2E20041779D /* SearchBar.swift */,
+				AA9EE38928D315C30045D912 /* ConfettiModifier.swift */,
 			);
 			path = Hydrate;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				AA7210ED28CCE2E20041779D /* SearchBar.swift in Sources */,
 				AA5EBBFA28D0DBF000B2BD46 /* SettingsView.swift in Sources */,
 				AA5EBBFC28D1FA1100B2BD46 /* ProfileView.swift in Sources */,
+				AA9EE38A28D315C30045D912 /* ConfettiModifier.swift in Sources */,
 				AAA4E3D228C23CC000C366B9 /* MainView.swift in Sources */,
 				AAA4E3E228C2491000C366B9 /* MainRingView.swift in Sources */,
 				AAA4E3E428C2535A00C366B9 /* TabsView.swift in Sources */,

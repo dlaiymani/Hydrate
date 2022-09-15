@@ -23,6 +23,7 @@ struct PlusButtonView: View {
             Button {
                 // volumeInPercent += 10
                 buttonPressed.toggle()
+                
             } label: {
                 Image(systemName: "plus")
                     .rotationEffect(.degrees(buttonPressed ? 45 : 0))
@@ -35,6 +36,22 @@ struct PlusButtonView: View {
             .mask(Circle())
             .shadow(color: Color.purple, radius: 5 )
             .zIndex(10)
+            
+            if buttonPressed {
+                Circle()
+                    .fill(Color.green)
+                    .frame(width: 12, height: 12)
+                    .modifier(ParticlesModifier())
+                Circle()
+                    .fill(Color.blue)
+                    .frame(width: 12, height: 12)
+                    .modifier(ParticlesModifier())
+                Circle()
+                    .fill(Color.red)
+                    .frame(width: 12, height: 12)
+                    .modifier(ParticlesModifier())
+            }
+            
             
             if numberOfFavorites == 1 {
                 GlassButton(buttonPressed: $buttonPressed, icon: favoritesContainers[0].icon, offsetX: -40, offsetY: -80, delay: 0.1)

@@ -80,14 +80,82 @@ struct StatsView: View {
     
     @State var stateType: StatsType = .week
     
-    
     var body: some View {
-        ZStack {
-            Color(.systemGray6)
-            
-            NavigationStack {
+        NavigationStack {
+            List {
+                Section {
+                    VStack() {
+                        
+                        HStack {
+                            Label("Trophy", systemImage: "medal")
+                                .foregroundStyle(Color.accentColor)
+                                .padding(.bottom)
+                            Spacer()
+                        }
+                        
+                        Image(systemName: "25.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.purple)
+                            .padding(.bottom, 2)
+                        
+                        
+                        Image(systemName: "trophy")
+                            .font(.system(size: 50))
+                            .foregroundColor(.yellow)
+                            .padding(.bottom, 2)
+                        
+                        Text("Hydrate Days")
+                            .foregroundColor(.yellow)
+                            .font(.title2)
+                            .padding(.bottom)
+                        
+                        Divider()
+                        
+                        
+                        
+                        HStack {
+                            VStack {
+                                Text("1500cl")
+                                    .font(.title2)
+                                    .foregroundColor(.purple)
+                                Text("Daily")
+                                    .foregroundColor(.gray)
+                                    .fontWeight(.medium)
+                                Text("Average")
+                                    .foregroundColor(.gray)
+                                    .fontWeight(.medium)
+                            }
+                            .padding(.horizontal, 10)
+                            VStack {
+                                Text("15")
+                                    .foregroundColor(.purple)
+                                    .font(.title2)
+                                Text("Daily")
+                                    .foregroundColor(.gray)
+                                    .fontWeight(.medium)
+                                Text("Streaks")
+                                    .foregroundColor(.gray)
+                                    .fontWeight(.medium)
+                            }
+                            .padding(.horizontal, 10)
+                            
+                            VStack {
+                                Text("10")
+                                    .foregroundColor(.purple)
+                                    .font(.title2)
+                                Text("Weekly")
+                                    .foregroundColor(.gray)
+                                    .fontWeight(.medium)
+                                Text("Streaks")
+                                    .foregroundColor(.gray)
+                                    .fontWeight(.medium)
+                            }
+                            .padding(.horizontal, 10)
+                        }
+                    }
+                }
                 
-                List {
+                Section {
                     VStack {
                         HStack {
                             Label("Hydratation", systemImage: "takeoutbag.and.cup.and.straw")
@@ -127,48 +195,14 @@ struct StatsView: View {
                         }
                         .frame(height: 250)
                     }
-                    
-                    Section {
-                        VStack() {
-                            
-                            HStack {
-                                Label("Trophy", systemImage: "medal")
-                                    .foregroundStyle(Color.accentColor)
-                                    .padding(.bottom)
-                                Spacer()
-                            }
-                            
-                            Image(systemName: "25.circle.fill")
-                                .font(.largeTitle)
-                                .foregroundColor(.purple)
-                                .padding(.bottom, 2)
-                            
-                            
-                            Image(systemName: "trophy")
-                                .font(.system(size: 50))
-                                .foregroundColor(.yellow)
-                                .padding(.bottom, 2)
-                            
-                            Text("Hydrate Days")
-                                .foregroundColor(.yellow)
-                                .font(.title2)
-                                .padding(.bottom)
-                          
-                            HStack {
-                                Text("Daily streaks")
-                                Text("Weekly Streaks")
-                                Text("Monthly Streaks")
-                            }
-                        }
-                    }
-                    
                 }
-                .navigationBarTitleDisplayMode(.large)
-                .navigationBarTitle(Text("Stats"))
+                
             }
+            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitle(Text("Stats"))
         }
-        
     }
+    
 }
 
 struct StatsView_Previews: PreviewProvider {
