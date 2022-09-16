@@ -8,22 +8,26 @@
 import SwiftUI
 
 struct GridContainersView: View {
+ 
     @State private var searchText = ""
     @State private var showingSheet = false
     @State private var isEditing = false
+    
+    
 
     private let numberOfColumns = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
-    var searchResults: [Container] {
+    var searchResults: [Recipient] {
         if searchText.isEmpty {
-            return Container.mockContainerData
+            return Recipient.mockContainerData
         } else {
-            return Container.mockContainerData.filter { $0.name .contains(searchText) }
+            return Recipient.mockContainerData.filter { $0.name .contains(searchText) }
         }
     }
+    
     
     private var shouldShowMenu = true
 

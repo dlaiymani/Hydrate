@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabsView: View {
+        
     var body: some View {
         TabView {
             MainView()
@@ -28,6 +29,12 @@ struct TabsView: View {
                     Text("Containers")
                 }
             
+            AddItem()
+                .tabItem {
+                    Image(systemName: "takeoutbag.and.cup.and.straw.fill")
+                    Text("Test")
+                }
+            
             
         }
         .accentColor(.purple)
@@ -37,5 +44,6 @@ struct TabsView: View {
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
         TabsView()
+
     }
 }

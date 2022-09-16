@@ -14,9 +14,12 @@
 		AA5F1CE928CF04940070229D /* AddContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5F1CE828CF04940070229D /* AddContainerView.swift */; };
 		AA5F1CEB28CF14A90070229D /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5F1CEA28CF14A90070229D /* IconPickerView.swift */; };
 		AA7210E828CCC7480041779D /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7210E728CCC7480041779D /* ContainerView.swift */; };
-		AA7210EA28CCC7A20041779D /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7210E928CCC7A20041779D /* Container.swift */; };
+		AA7210EA28CCC7A20041779D /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7210E928CCC7A20041779D /* Recipient.swift */; };
 		AA7210ED28CCE2E20041779D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7210EC28CCE2E20041779D /* SearchBar.swift */; };
 		AA9EE38A28D315C30045D912 /* ConfettiModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE38928D315C30045D912 /* ConfettiModifier.swift */; };
+		AA9EE38D28D4C2000045D912 /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE38B28D4C2000045D912 /* Hydrate.xcdatamodeld */; };
+		AA9EE39128D4D1DE0045D912 /* PersistencController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE39028D4D1DE0045D912 /* PersistencController.swift */; };
+		AA9EE39328D4D9A90045D912 /* AddItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE39228D4D9A90045D912 /* AddItem.swift */; };
 		AAA4E3D028C23CC000C366B9 /* HydrateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */; };
 		AAA4E3D228C23CC000C366B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3D128C23CC000C366B9 /* MainView.swift */; };
 		AAA4E3D428C23CC100C366B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA4E3D328C23CC100C366B9 /* Assets.xcassets */; };
@@ -36,9 +39,12 @@
 		AA5F1CE828CF04940070229D /* AddContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContainerView.swift; sourceTree = "<group>"; };
 		AA5F1CEA28CF14A90070229D /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		AA7210E728CCC7480041779D /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
-		AA7210E928CCC7A20041779D /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		AA7210E928CCC7A20041779D /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
 		AA7210EC28CCE2E20041779D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		AA9EE38928D315C30045D912 /* ConfettiModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiModifier.swift; sourceTree = "<group>"; };
+		AA9EE38C28D4C2000045D912 /* Hydrate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrate.xcdatamodel; sourceTree = "<group>"; };
+		AA9EE39028D4D1DE0045D912 /* PersistencController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencController.swift; sourceTree = "<group>"; };
+		AA9EE39228D4D9A90045D912 /* AddItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItem.swift; sourceTree = "<group>"; };
 		AAA4E3CC28C23CC000C366B9 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateApp.swift; sourceTree = "<group>"; };
 		AAA4E3D128C23CC000C366B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -65,7 +71,7 @@
 		AA7210EB28CCC7D10041779D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AA7210E928CCC7A20041779D /* Container.swift */,
+				AA7210E928CCC7A20041779D /* Recipient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,10 +110,13 @@
 				AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */,
 				AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */,
 				AAA4E3E528C253CE00C366B9 /* StatsView.swift */,
+				AA9EE38928D315C30045D912 /* ConfettiModifier.swift */,
 				AAA4E3D328C23CC100C366B9 /* Assets.xcassets */,
 				AAA4E3D528C23CC100C366B9 /* Preview Content */,
 				AA7210EC28CCE2E20041779D /* SearchBar.swift */,
-				AA9EE38928D315C30045D912 /* ConfettiModifier.swift */,
+				AA9EE38B28D4C2000045D912 /* Hydrate.xcdatamodeld */,
+				AA9EE39028D4D1DE0045D912 /* PersistencController.swift */,
+				AA9EE39228D4D9A90045D912 /* AddItem.swift */,
 			);
 			path = Hydrate;
 			sourceTree = "<group>";
@@ -191,11 +200,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA7210E828CCC7480041779D /* ContainerView.swift in Sources */,
+				AA9EE38D28D4C2000045D912 /* Hydrate.xcdatamodeld in Sources */,
 				AAA4E3E028C241F600C366B9 /* WeekView.swift in Sources */,
 				AAA4E3DE28C240FE00C366B9 /* CircleDayView.swift in Sources */,
+				AA9EE39328D4D9A90045D912 /* AddItem.swift in Sources */,
 				AA5F1CEB28CF14A90070229D /* IconPickerView.swift in Sources */,
 				AA26A36E28CC8CC30005D8B6 /* GridContainersView.swift in Sources */,
 				AA41202928C77D8500A1E65A /* PlusButtonView.swift in Sources */,
+				AA9EE39128D4D1DE0045D912 /* PersistencController.swift in Sources */,
 				AA7210ED28CCE2E20041779D /* SearchBar.swift in Sources */,
 				AA5EBBFA28D0DBF000B2BD46 /* SettingsView.swift in Sources */,
 				AA5EBBFC28D1FA1100B2BD46 /* ProfileView.swift in Sources */,
@@ -204,7 +216,7 @@
 				AAA4E3E228C2491000C366B9 /* MainRingView.swift in Sources */,
 				AAA4E3E428C2535A00C366B9 /* TabsView.swift in Sources */,
 				AAA4E3E628C253CE00C366B9 /* StatsView.swift in Sources */,
-				AA7210EA28CCC7A20041779D /* Container.swift in Sources */,
+				AA7210EA28CCC7A20041779D /* Recipient.swift in Sources */,
 				AAA4E3D028C23CC000C366B9 /* HydrateApp.swift in Sources */,
 				AA5F1CE928CF04940070229D /* AddContainerView.swift in Sources */,
 			);
@@ -407,6 +419,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA9EE38B28D4C2000045D912 /* Hydrate.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA9EE38C28D4C2000045D912 /* Hydrate.xcdatamodel */,
+			);
+			currentVersion = AA9EE38C28D4C2000045D912 /* Hydrate.xcdatamodel */;
+			path = Hydrate.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AAA4E3C428C23CC000C366B9 /* Project object */;
 }

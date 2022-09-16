@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContainerView: View {
-    var container: Container
+    var container: Recipient
     @State var isFavorite = false
     
     var body: some View {
@@ -67,6 +67,6 @@ struct FavoriteButtonStyle: ButtonStyle {
 
 struct ContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        ContainerView(container: Container(name: "Glass", icon: "wineglass.fill", volume: 20, color: Color.red))
+        ContainerView(container: Recipient(name: "Glass", icon: "wineglass.fill", volume: 20, color: Color.red))
     }
 }

@@ -11,11 +11,11 @@ struct PlusButtonView: View {
     @State var buttonPressed = false
     
     var numberOfFavorites: Int {
-        return  Container.mockContainerData.filter({ $0.isFavorite == true }).count
+        return  Recipient.mockContainerData.filter({ $0.isFavorite == true }).count
     }
     
-    var favoritesContainers: [Container] {
-        return Container.mockContainerData.filter { $0.isFavorite == true}
+    var favoritesContainers: [Recipient] {
+        return Recipient.mockContainerData.filter { $0.isFavorite == true}
     }
     
     var body: some View {
