@@ -31,6 +31,7 @@
 		AAA4E3E428C2535A00C366B9 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3E328C2535A00C366B9 /* TabsView.swift */; };
 		AAA4E3E628C253CE00C366B9 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3E528C253CE00C366B9 /* StatsView.swift */; };
 		AAC8369B28E5BADB003F64F3 /* GridContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */; };
+		AAC8369D28E5CC2B003F64F3 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		AAA4E3E328C2535A00C366B9 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		AAA4E3E528C253CE00C366B9 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContainerCell.swift; sourceTree = "<group>"; };
+		AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				AA7210EB28CCC7D10041779D /* Model */,
 				AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */,
 				AAA4E3E328C2535A00C366B9 /* TabsView.swift */,
+				AAA4E3D128C23CC000C366B9 /* MainView.swift */,
 				AAA4E3DD28C240FE00C366B9 /* CircleDayView.swift */,
 				AAA4E3DF28C241F600C366B9 /* WeekView.swift */,
 				AAA4E3E128C2491000C366B9 /* MainRingView.swift */,
@@ -128,6 +131,8 @@
 				AA7210E728CCC7480041779D /* ContainerView.swift */,
 				AA5F1CE828CF04940070229D /* AddEditContainerView.swift */,
 				AA5F1CEA28CF14A90070229D /* IconPickerView.swift */,
+				AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */,
+				AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */,
 				AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */,
 				AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */,
 				AAA4E3E528C253CE00C366B9 /* StatsView.swift */,
@@ -137,8 +142,6 @@
 				AA7210EC28CCE2E20041779D /* SearchBar.swift */,
 				AA9EE38B28D4C2000045D912 /* Hydrate.xcdatamodeld */,
 				AA9EE39028D4D1DE0045D912 /* PersistenceController.swift */,
-				AAA4E3D128C23CC000C366B9 /* MainView.swift */,
-				AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */,
 			);
 			path = Hydrate;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				AA5EBBFA28D0DBF000B2BD46 /* SettingsView.swift in Sources */,
 				AA5EBBFC28D1FA1100B2BD46 /* ProfileView.swift in Sources */,
 				AA9EE38A28D315C30045D912 /* ConfettiModifier.swift in Sources */,
+				AAC8369D28E5CC2B003F64F3 /* ColorPickerView.swift in Sources */,
 				AAA4E3D228C23CC000C366B9 /* MainView.swift in Sources */,
 				AAA4E3E228C2491000C366B9 /* MainRingView.swift in Sources */,
 				AAC8369B28E5BADB003F64F3 /* GridContainerCell.swift in Sources */,

@@ -28,10 +28,7 @@ class RecipientsViewModel: ObservableObject {
         newEntity.name = recipient.name
         newEntity.icon = recipient.icon
         newEntity.volume = recipient.volume
-        newEntity.red = Float(recipient.red)
-        newEntity.green = Float(recipient.green)
-        newEntity.blue = Float(recipient.blue)
-        newEntity.opacity = Float(recipient.opacity)
+        newEntity.color = recipient.color
         newEntity.isFavorite = recipient.isFavorite
         PersistenceController.shared.save()
 

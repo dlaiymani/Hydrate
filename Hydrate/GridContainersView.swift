@@ -25,7 +25,7 @@ struct GridContainersView: View {
     
     private var shouldShowMenu = true
     
-    @State private var recipient: RecipientEntity?
+  //  @State private var recipient: RecipientEntity?
     
     var body: some View {
         
@@ -92,9 +92,13 @@ struct GridContainersView: View {
             }
         })
         .searchable(text: $searchText)
-        .fullScreenCover(isPresented: $showingSheet) {
-            AddEditContainerView(recipient: self.$recipient)
-        }
+        .sheet(isPresented: $showingSheet, content: {
+            AddEditContainerView(recipient: nil)
+
+        })
+     //   .fullScreenCover(isPresented: $showingSheet) {
+      //      AddEditContainerView(recipient: self.$recipient)
+       // }
         
     }
 }

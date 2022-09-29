@@ -21,7 +21,6 @@ struct GridContainerCell: View {
             .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 30, style: .continuous))
             .contextMenu {
                 Button {
-                   // self.recipient = container
                     self.showingSheet.toggle()
                 } label : {
                     Label("Edit", systemImage: "square.and.pencil")
@@ -31,13 +30,16 @@ struct GridContainerCell: View {
                 
                 Button(role: .destructive) {
                     withAnimation {
-                  //      recipientViewModel.deleteRecipient(container)
+                        recipientViewModel.deleteRecipient(container)
                     }
                 } label: {
                     Label("Delete", systemImage: "trash")
-                    
                 }
             }
+            .sheet(isPresented: $showingSheet, content: {
+                AddEditContainerView(recipient: self.container)
+
+            })
     }
 }
 

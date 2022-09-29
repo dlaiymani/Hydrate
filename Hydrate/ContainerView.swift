@@ -53,7 +53,7 @@ struct ContainerView: View {
                 .padding([.bottom, .leading])
         }
         .frame(width: 150, height: 150, alignment: .leading)
-        .background(Color(.sRGB, red: Double(container.red), green: Double(container.green), blue: Double(container.blue), opacity: Double(container.opacity)))
+        .background(Color(container.color ?? "Lavender"))
         .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
         .foregroundColor(.white)
     }
