@@ -17,6 +17,8 @@ struct IconPickerView: View {
     
     @State private var selectedIndex = IndexPath(row: 0, section: 9)
 
+    @Binding var emojisPicked: Bool
+    @Binding var iconString: String
     
     let columns = [
         GridItem(.adaptive(minimum: 80))
@@ -30,6 +32,8 @@ struct IconPickerView: View {
                             ZStack {
                                 Button {
                                     selectedIndex = IndexPath(row: 0, section: index)
+                                    emojisPicked = true
+                                    iconString = emojis[index]
                                 } label: {
                                     if (selectedIndex.row == 0) && (index == selectedIndex.section) {
                                         Text(item)
@@ -62,6 +66,8 @@ struct IconPickerView: View {
                             ZStack {
                                 Button {
                                     selectedIndex = IndexPath(row: 1, section: index)
+                                    emojisPicked = false
+                                    iconString = symbols[index]
                                 } label: {
                                     if (selectedIndex.row == 1) && (index == selectedIndex.section) {
                                         Image(systemName: item)
@@ -111,8 +117,8 @@ struct IconPickerView: View {
     }
 }
 
-struct IconPickerView_Previews: PreviewProvider {
-    static var previews: some View {
-        IconPickerView()
-    }
-}
+//struct IconPickerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IconPickerView()
+//    }
+//}

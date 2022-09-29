@@ -8,29 +8,24 @@
 import SwiftUI
 
 struct GridContainersView: View {
- 
+    
     @State private var searchText = ""
     @State private var showingSheet = false
     @State private var isEditing = false
     
+    @EnvironmentObject var recipientViewModel: RecipientsViewModel
+    @Environment(\.managedObjectContext) var viewContext
+    @FetchRequest(sortDescriptors: []) var recipients: FetchedResults<RecipientEntity>
     
-
     private let numberOfColumns = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
-    var searchResults: [Recipient] {
-        if searchText.isEmpty {
-            return Recipient.mockContainerData
-        } else {
-            return Recipient.mockContainerData.filter { $0.name .contains(searchText) }
-        }
-    }
-    
     
     private var shouldShowMenu = true
-
+    
+    @State private var recipient: RecipientEntity?
     
     var body: some View {
         
@@ -38,38 +33,9 @@ struct GridContainersView: View {
             ScrollView {
                 Section {
                     LazyVGrid(columns: numberOfColumns, spacing: 20) {
-                        ForEach(searchResults) { container in
+                        ForEach(recipients) { container in
                             if container.isFavorite {
-                                ContainerView(container: container)
-                                    .contextMenu {
-                                        Button {
-                                            
-                                        } label : {
-                                            Label("Unfavorite", systemImage: "heart.slash")
-                                        }
-                                        
-                                        
-                                        Button {
-                                            self.showingSheet.toggle()
-                                        } label : {
-                                            Label("Edit", systemImage: "square.and.pencil")
-                                        }
-                                        
-                                        Button {
-                                            
-                                        } label : {
-                                            Label("Duplicate", systemImage: "doc.on.doc")
-                                        }
-                                        
-                                        Divider()
-                                        
-                                        Button(role: .destructive) {
-                                            
-                                        } label: {
-                                            Label("Delete", systemImage: "trash")
-                                                    
-                                        }
-                                    }
+                                GridContainerCell(container: container)
                             }
                         }
                     }
@@ -87,38 +53,9 @@ struct GridContainersView: View {
                 
                 Section {
                     LazyVGrid(columns: numberOfColumns, spacing: 20) {
-                        ForEach(searchResults) { container in
+                        ForEach(recipients) { container in
                             if !container.isFavorite {
-                                ContainerView(container: container)
-                                    .contextMenu {
-                                        Button {
-                                            
-                                        } label : {
-                                            Label("Unfavorite", systemImage: "heart.slash")
-                                        }
-                                        
-                                        
-                                        Button {
-                                            self.showingSheet.toggle()
-                                        } label : {
-                                            Label("Edit", systemImage: "square.and.pencil")
-                                        }
-                                        
-                                        Button {
-                                            
-                                        } label : {
-                                            Label("Duplicate", systemImage: "doc.on.doc")
-                                        }
-                                        
-                                        Divider()
-                                        
-                                        Button(role: .destructive) {
-                                            
-                                        } label: {
-                                            Label("Delete", systemImage: "trash")
-                                                    
-                                        }
-                                    }
+                                GridContainerCell(container: container)
                             }
                         }
                     }
@@ -147,16 +84,24 @@ struct GridContainersView: View {
                 }
             }
         }
+        .onChange(of: searchText, perform: { newValue in
+            if !searchText.isEmpty {
+                recipients.nsPredicate = NSPredicate(format: "name CONTAINS[c] %@", searchText)
+            } else {
+                recipients.nsPredicate = nil
+            }
+        })
         .searchable(text: $searchText)
         .fullScreenCover(isPresented: $showingSheet) {
-            AddContainerView()
-                
+            AddEditContainerView(recipient: self.$recipient)
         }
+        
     }
 }
 
-struct NewContainer_Previews: PreviewProvider {
-    static var previews: some View {
-        GridContainersView()
-    }
-}
+//struct NewContainer_Previews: PreviewProvider {
+//    static var previews: some View {
+//  //      GridContainersView()
+//           // .environmentObject(RecipientsViewModel())
+//    }
+//}

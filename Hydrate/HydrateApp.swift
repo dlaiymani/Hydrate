@@ -10,21 +10,23 @@ import SwiftUI
 @main
 struct HydrateApp: App {
     
-    let persistenceController = PersistenceController.shared
-    
     @Environment(\.scenePhase) var scenePhase
+    
+    @StateObject private var recipientViewModel = RecipientsViewModel()
+    let viewContext = PersistenceController.shared.container.viewContext
     
     var body: some Scene {
         WindowGroup {
             TabsView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, viewContext)
+                .environmentObject(recipientViewModel)
         }
         .onChange(of: scenePhase) { newScenePhase in
             switch newScenePhase {
                 
             case .background:
                 print("Scene is in background")
-                persistenceController.save()
+              //  persistenceController.save()
             case .inactive:
                 print("Scene is inactive")
             case .active:

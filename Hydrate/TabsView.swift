@@ -9,6 +9,11 @@ import SwiftUI
 
 struct TabsView: View {
         
+    //@EnvironmentObject var recipientViewModel: RecipientsViewModel
+  //  @StateObject var recipientViewModel = RecipientsViewModel()
+
+
+    
     var body: some View {
         TabView {
             MainView()
@@ -28,14 +33,6 @@ struct TabsView: View {
                     Image(systemName: "takeoutbag.and.cup.and.straw.fill")
                     Text("Containers")
                 }
-            
-            AddItem()
-                .tabItem {
-                    Image(systemName: "takeoutbag.and.cup.and.straw.fill")
-                    Text("Test")
-                }
-            
-            
         }
         .accentColor(.purple)
     }

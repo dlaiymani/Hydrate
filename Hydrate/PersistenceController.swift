@@ -7,14 +7,13 @@
 
 import CoreData
 
-struct PersistenceController {
+class PersistenceController {
     
     static let shared = PersistenceController()
     
-    let container: NSPersistentContainer
+    let container: NSPersistentContainer = NSPersistentContainer(name: "Hydrate")
     
-    init() {
-        container = NSPersistentContainer(name: "Hydrate")
+    private init() {
         container.loadPersistentStores { description, error in
             if let error = error {
                 fatalError("Error: \(error.localizedDescription)")
@@ -34,6 +33,25 @@ struct PersistenceController {
         }
     }
     
+    func getRecipients() -> [RecipientEntity] {
+        let request: NSFetchRequest<RecipientEntity> = RecipientEntity.fetchRequest()
+        
+        do {
+            return try container.viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
+    
+    
+    func getRecipientById(id: NSManagedObjectID) -> RecipientEntity? {
+        do {
+            return try container.viewContext.existingObject(with: id) as! RecipientEntity
+        } catch {
+            return nil
+        }
+    }
+
     
     func delete(_ object: NSManagedObject, completion: @escaping (Error?) -> () = {_ in}) {
         let context = container.viewContext

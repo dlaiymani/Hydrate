@@ -9,14 +9,19 @@ import SwiftUI
 
 struct MainView: View {
     @State private var volumeInPercent = 50.0
-    
     @State private var showProfileSheet = false
+    
+  //  @EnvironmentObject var recipientViewModel: RecipientsViewModel
+
+    @StateObject var recipientVM = RecipientsViewModel()
     
     var minVolume = 0.0
     var maxVolume = 100.0
     var body: some View {
         
         NavigationStack {
+            
+           
             VStack {
                 WeekView()
                 //       .padding(.top, 40)
@@ -53,12 +58,17 @@ struct MainView: View {
                     }
                 }
             }
+            .onAppear {
+               // recipientViewModel.loadRecipients()
+            }
         }
         .sheet(isPresented: $showProfileSheet) {
             SettingsView(showProfileSheet: $showProfileSheet)
         }
         
     }
+    
+    
 }
 
 struct MainView_Previews: PreviewProvider {

@@ -8,56 +8,60 @@
 import SwiftUI
 
 struct ContainerView: View {
-    var container: Recipient
-    @State var isFavorite = false
+    
+    @State var container: RecipientEntity
+    
+    @EnvironmentObject var recipientViewModel: RecipientsViewModel
+
     
     var body: some View {
-        
-        ZStack {
-            Rectangle()
-                .frame(width: 150, height: 150)
-                .foregroundColor(container.color)
-                .cornerRadius(20)
-            
-            
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: container.icon)
+        VStack(alignment: .leading) {
+            HStack {
+                if container.icon!.containsOnlyEmojis() {
+                    Text(container.icon!)
                         .padding()
-                    
-                    Spacer()
-                    
-                    Button {
-                        isFavorite.toggle()
-                    } label: {
-                        Image(systemName: isFavorite ? "star.fill" : "star")
-                    }
-                    
-                    .buttonStyle(FavoriteButtonStyle())
+                } else {
+                    Image(systemName: container.icon ?? "cup")
+                        .padding()
                 }
                 
-
-               Spacer()
-
-                Text(container.name)
-                    .font(.title2)
-                    .fontWeight(.medium)
-                    .padding(.bottom,4)
-                    .padding(.leading)
-
-                Text("\(container.volume, specifier: "%2.f") cl")
-                    .font(.subheadline)
-                    .padding([.bottom, .leading])
+                Spacer()
+                
+                Button {
+                    withAnimation {
+                        container.isFavorite.toggle()
+                        PersistenceController.shared.save()
+                    }
+                    
+                } label: {
+                    Image(systemName: container.isFavorite ? "star.fill" : "star")
+                }
+                .buttonStyle(FavoriteButtonStyle())
             }
-            .frame(width: 150, height: 150, alignment: .leading)
-            .foregroundColor(.white)
+            
+            
+            Spacer()
+            
+            Text(container.name ?? "cup")
+                .font(.title2)
+                .fontWeight(.medium)
+                .padding(.bottom,4)
+                .padding(.leading)
+            
+            Text("\(container.volume, specifier: "%2.f") cl")
+                .font(.subheadline)
+                .padding([.bottom, .leading])
         }
+        .frame(width: 150, height: 150, alignment: .leading)
+        .background(Color(.sRGB, red: Double(container.red), green: Double(container.green), blue: Double(container.blue), opacity: Double(container.opacity)))
+        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+        .foregroundColor(.white)
     }
 }
 
 
 struct FavoriteButtonStyle: ButtonStyle {
- 
+    
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .padding()
@@ -65,8 +69,13 @@ struct FavoriteButtonStyle: ButtonStyle {
     }
 }
 
-struct ContainerView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContainerView(container: Recipient(name: "Glass", icon: "wineglass.fill", volume: 20, color: Color.red))
-    }
-}
+//struct ContainerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContainerView(container: Recipient(name: "Glass", icon: "wineglass.fill", volume: 20,
+//                                           red: UIColor(.red).cgColor.components![0],
+//                                           green: UIColor(.red).cgColor.components![1],
+//                                           blue: UIColor(.red).cgColor.components![2],
+//                                           opacity: 1.0,
+//                                           isFavorite: true))
+//    }
+//}
