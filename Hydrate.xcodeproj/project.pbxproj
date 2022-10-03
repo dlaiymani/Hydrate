@@ -11,7 +11,7 @@
 		AA41202928C77D8500A1E65A /* PlusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41202828C77D8500A1E65A /* PlusButtonView.swift */; };
 		AA5EBBFA28D0DBF000B2BD46 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */; };
 		AA5EBBFC28D1FA1100B2BD46 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */; };
-		AA5F1CE928CF04940070229D /* AddEditContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5F1CE828CF04940070229D /* AddEditContainerView.swift */; };
+		AA5F1CE928CF04940070229D /* AddContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5F1CE828CF04940070229D /* AddContainerView.swift */; };
 		AA5F1CEB28CF14A90070229D /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5F1CEA28CF14A90070229D /* IconPickerView.swift */; };
 		AA7210E828CCC7480041779D /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7210E728CCC7480041779D /* ContainerView.swift */; };
 		AA7210EA28CCC7A20041779D /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7210E928CCC7A20041779D /* Recipient.swift */; };
@@ -30,6 +30,7 @@
 		AAA4E3E228C2491000C366B9 /* MainRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3E128C2491000C366B9 /* MainRingView.swift */; };
 		AAA4E3E428C2535A00C366B9 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3E328C2535A00C366B9 /* TabsView.swift */; };
 		AAA4E3E628C253CE00C366B9 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3E528C253CE00C366B9 /* StatsView.swift */; };
+		AAC706ED28EB07270044BBD0 /* EditContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC706EC28EB07270044BBD0 /* EditContainerView.swift */; };
 		AAC8369B28E5BADB003F64F3 /* GridContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */; };
 		AAC8369D28E5CC2B003F64F3 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */; };
 /* End PBXBuildFile section */
@@ -39,7 +40,7 @@
 		AA41202828C77D8500A1E65A /* PlusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonView.swift; sourceTree = "<group>"; };
 		AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		AA5F1CE828CF04940070229D /* AddEditContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditContainerView.swift; sourceTree = "<group>"; };
+		AA5F1CE828CF04940070229D /* AddContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContainerView.swift; sourceTree = "<group>"; };
 		AA5F1CEA28CF14A90070229D /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		AA7210E728CCC7480041779D /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		AA7210E928CCC7A20041779D /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		AAA4E3E128C2491000C366B9 /* MainRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRingView.swift; sourceTree = "<group>"; };
 		AAA4E3E328C2535A00C366B9 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		AAA4E3E528C253CE00C366B9 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		AAC706EC28EB07270044BBD0 /* EditContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerView.swift; sourceTree = "<group>"; };
 		AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContainerCell.swift; sourceTree = "<group>"; };
 		AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,11 +130,12 @@
 				AAA4E3E128C2491000C366B9 /* MainRingView.swift */,
 				AA41202828C77D8500A1E65A /* PlusButtonView.swift */,
 				AA26A36D28CC8CC30005D8B6 /* GridContainersView.swift */,
+				AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */,
 				AA7210E728CCC7480041779D /* ContainerView.swift */,
-				AA5F1CE828CF04940070229D /* AddEditContainerView.swift */,
+				AA5F1CE828CF04940070229D /* AddContainerView.swift */,
+				AAC706EC28EB07270044BBD0 /* EditContainerView.swift */,
 				AA5F1CEA28CF14A90070229D /* IconPickerView.swift */,
 				AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */,
-				AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */,
 				AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */,
 				AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */,
 				AAA4E3E528C253CE00C366B9 /* StatsView.swift */,
@@ -230,6 +233,7 @@
 				AAA4E3E028C241F600C366B9 /* WeekView.swift in Sources */,
 				AAA4E3DE28C240FE00C366B9 /* CircleDayView.swift in Sources */,
 				AA5F1CEB28CF14A90070229D /* IconPickerView.swift in Sources */,
+				AAC706ED28EB07270044BBD0 /* EditContainerView.swift in Sources */,
 				AA26A36E28CC8CC30005D8B6 /* GridContainersView.swift in Sources */,
 				AA41202928C77D8500A1E65A /* PlusButtonView.swift in Sources */,
 				AA9EE39128D4D1DE0045D912 /* PersistenceController.swift in Sources */,
@@ -246,7 +250,7 @@
 				AAA4E3E628C253CE00C366B9 /* StatsView.swift in Sources */,
 				AA7210EA28CCC7A20041779D /* Recipient.swift in Sources */,
 				AAA4E3D028C23CC000C366B9 /* HydrateApp.swift in Sources */,
-				AA5F1CE928CF04940070229D /* AddEditContainerView.swift in Sources */,
+				AA5F1CE928CF04940070229D /* AddContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

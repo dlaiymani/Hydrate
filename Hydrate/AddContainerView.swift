@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct AddEditContainerView: View {
+struct AddContainerView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var recipientViewModel: RecipientsViewModel
-    
+    @Environment(\.managedObjectContext) private var viewContext
     
     @State private var name: String = ""
     @State private var volume: String = ""
@@ -22,13 +22,6 @@ struct AddEditContainerView: View {
     
     @State var iconString: String = ""
     @State var colorString: String = ""
-
-    
-    var recipient: RecipientEntity?
-    
-    init(recipient: RecipientEntity?) {
-        self.recipient = recipient
-    }
     
     var body: some View {
         NavigationStack {
@@ -55,20 +48,7 @@ struct AddEditContainerView: View {
                     
                 }
             }
-            .onAppear {
-                if let recipient = recipient {
-                    name = recipient.name ?? ""
-                    volume = String(recipient.volume)
-                    iconString = recipient.icon ?? ""
-                    colorString = recipient.color ?? ""
-                } else {
-                    name = ""
-                    volume = ""
-                    iconString = ""
-                    colorString = ""
-                }
-            }
-           
+            
             .alert(isPresented: $isShowingAlertName, content: {
                 Alert(title: Text("Your name must be at least 1 character long 😪"))
             })
@@ -91,22 +71,18 @@ struct AddEditContainerView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        
-                     //   recipientViewModel.deleteRecipient(recipient!)
-                        
-                        
                         if (name.count == 0) {
                             isShowingAlertName = true
                         } else {
                             if volume.count == 0 {
                                 isShowingAlertVolume = true
                             } else {
-                              //  let color = UIColor(color).cgColor
                                 let recipient = Recipient(name: name, icon: iconString, volume: Double(volume)!, color: colorString, isFavorite: false)
                                 recipientViewModel.addRecipient(recipient: recipient)
                                 dismiss()
                             }
                         }
+                        
                     } label: {
                         Text("Add")
                             .fontWeight(.bold)
@@ -116,14 +92,9 @@ struct AddEditContainerView: View {
                                 Capsule().fill(Color.purple.opacity(0.05))
                             })
                     }
-                    
                 }
+                
             }
-        }
-        .onAppear {
-            //            name = self.recipient!.name ?? ""
-            //            volume = String(self.recipient.volume)
-            
         }
     }
 }

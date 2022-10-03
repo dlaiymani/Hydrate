@@ -22,11 +22,8 @@ struct GridContainersView: View {
         GridItem(.flexible())
     ]
     
-    
     private var shouldShowMenu = true
-    
-  //  @State private var recipient: RecipientEntity?
-    
+        
     var body: some View {
         
         NavigationStack {
@@ -93,13 +90,8 @@ struct GridContainersView: View {
         })
         .searchable(text: $searchText)
         .sheet(isPresented: $showingSheet, content: {
-            AddEditContainerView(recipient: nil)
-
+            AddContainerView()
         })
-     //   .fullScreenCover(isPresented: $showingSheet) {
-      //      AddEditContainerView(recipient: self.$recipient)
-       // }
-        
     }
 }
 

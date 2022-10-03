@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContainerView: View {
     
-    @State var container: RecipientEntity
+    @ObservedObject var container: RecipientEntity
     
-    @EnvironmentObject var recipientViewModel: RecipientsViewModel
+  //  @EnvironmentObject var recipientViewModel: RecipientsViewModel
 
     
     var body: some View {

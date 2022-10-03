@@ -52,9 +52,6 @@ struct IconPickerView: View {
             }
             .padding(.horizontal)
         }
-        .onAppear {
-            print(iconString)
-        }
     }
 }
 

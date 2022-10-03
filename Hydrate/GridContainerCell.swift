@@ -10,8 +10,9 @@ import SwiftUI
 struct GridContainerCell: View {
     
     @EnvironmentObject var recipientViewModel: RecipientsViewModel
+    
 
-    var container: RecipientEntity
+    @ObservedObject var container: RecipientEntity
     @State private var shouldShowMenu = true
     @State private var showingSheet = false
 
@@ -37,8 +38,7 @@ struct GridContainerCell: View {
                 }
             }
             .sheet(isPresented: $showingSheet, content: {
-                AddEditContainerView(recipient: self.container)
-
+                EditContainerView(recipient: container)
             })
     }
 }

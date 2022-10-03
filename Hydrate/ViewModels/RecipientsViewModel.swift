@@ -34,6 +34,7 @@ class RecipientsViewModel: ObservableObject {
 
     }
     
+    
     func deleteRecipient(_ recipient: RecipientEntity) {
         PersistenceController.shared.delete(recipient)
     }
