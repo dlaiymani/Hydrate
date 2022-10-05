@@ -11,6 +11,8 @@ import SwiftUI
 struct HydrateApp: App {
     
     @Environment(\.scenePhase) var scenePhase
+   // @AppStorage("theme") private var theme: Theme
+
     
     @StateObject private var recipientViewModel = RecipientsViewModel()
     let viewContext = PersistenceController.shared.container.viewContext

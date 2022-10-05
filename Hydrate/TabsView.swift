@@ -7,13 +7,14 @@
 
 import SwiftUI
 
+enum DefaultSettings {
+    static let darkMode = false
+}
+
 struct TabsView: View {
-        
-    //@EnvironmentObject var recipientViewModel: RecipientsViewModel
-  //  @StateObject var recipientViewModel = RecipientsViewModel()
-
-
     
+    @AppStorage("colorScheme") private var colorScheme = 0
+
     var body: some View {
         TabView {
             MainView()
@@ -35,6 +36,9 @@ struct TabsView: View {
                 }
         }
         .accentColor(.purple)
+        .preferredColorScheme(colorScheme == 0 ? .light : .dark)
+
+       
     }
 }
 

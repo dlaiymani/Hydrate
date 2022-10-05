@@ -43,6 +43,16 @@ class PersistenceController {
         }
     }
     
+    func getProfile() -> [ProfileEntity] {
+        let request: NSFetchRequest<ProfileEntity> = ProfileEntity.fetchRequest()
+        
+        do {
+            return try container.viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
+    
     
     func getRecipientById(id: NSManagedObjectID) -> RecipientEntity? {
         do {

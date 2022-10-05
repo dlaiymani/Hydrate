@@ -11,17 +11,18 @@ struct AddContainerView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var recipientViewModel: RecipientsViewModel
     @Environment(\.managedObjectContext) private var viewContext
+
     
     @State private var name: String = ""
     @State private var volume: String = ""
-    @State private var color = Color.cyan
     @State private var showingIconSheet = false
-    @State private var isShowingAlertName = false
-    @State private var isShowingAlertVolume = false
+    @State private var isShowingAlert = false
     
     
-    @State var iconString: String = ""
-    @State var colorString: String = ""
+    @State var iconString: String = "rectangle.roundedbottom"
+    @State var colorString: String = "Salmon"
+    
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationStack {
@@ -48,13 +49,6 @@ struct AddContainerView: View {
                     
                 }
             }
-            
-            .alert(isPresented: $isShowingAlertName, content: {
-                Alert(title: Text("Your name must be at least 1 character long 😪"))
-            })
-            .alert(isPresented: $isShowingAlertVolume, content: {
-                Alert(title: Text("Your must specify a volume for your recipient 😪"))
-            })
             .navigationTitle("New Container")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -63,8 +57,8 @@ struct AddContainerView: View {
                         dismiss()
                     } label: {
                         Image(systemName: "xmark.circle.fill")
-                            .font(.title2)
-                            .foregroundColor(Color(.systemGray3))
+                            .font(.title3)
+                            .foregroundColor(Color(.systemGray2))
                     }
                     
                 }
@@ -72,10 +66,12 @@ struct AddContainerView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         if (name.count == 0) {
-                            isShowingAlertName = true
+                            alertMessage = "Your name must be at least 1 character long 🥲"
+                            isShowingAlert = true
                         } else {
                             if volume.count == 0 {
-                                isShowingAlertVolume = true
+                                alertMessage = "Your must specify a volume for your recipient 🥲"
+                                isShowingAlert = true
                             } else {
                                 let recipient = Recipient(name: name, icon: iconString, volume: Double(volume)!, color: colorString, isFavorite: false)
                                 recipientViewModel.addRecipient(recipient: recipient)
@@ -92,10 +88,15 @@ struct AddContainerView: View {
                                 Capsule().fill(Color.purple.opacity(0.05))
                             })
                     }
+                    .alert(isPresented: $isShowingAlert, content: {
+                        Alert(title: Text(alertMessage))
+                    })
                 }
                 
             }
+            
         }
+
     }
 }
 

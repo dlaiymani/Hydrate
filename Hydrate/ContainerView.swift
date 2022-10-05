@@ -9,21 +9,15 @@ import SwiftUI
 
 struct ContainerView: View {
     
-    @ObservedObject var container: RecipientEntity
+    @ObservedObject var container: RecipientEntity // because it is a class!!!!
     
-  //  @EnvironmentObject var recipientViewModel: RecipientsViewModel
-
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                if container.icon!.containsOnlyEmojis() {
-                    Text(container.icon!)
-                        .padding()
-                } else {
-                    Image(systemName: container.icon ?? "cup")
-                        .padding()
-                }
+                Image(systemName: container.icon ?? "cup")
+                    .padding()
+
                 
                 Spacer()
                 

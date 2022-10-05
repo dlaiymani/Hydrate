@@ -12,18 +12,19 @@ struct EditContainerView: View {
     @EnvironmentObject var recipientViewModel: RecipientsViewModel
     @Environment(\.managedObjectContext) private var viewContext
 
+
     
     @State private var name: String = ""
     @State private var volume: String = ""
     @State private var color = Color.cyan
     @State private var showingIconSheet = false
-    @State private var isShowingAlertName = false
-    @State private var isShowingAlertVolume = false
-    
+    @State private var isShowingAlert = false
     
     @State var iconString: String = ""
     @State var colorString: String = ""
     
+    @State private var alertMessage = ""
+
     var recipient: RecipientEntity
     
     var body: some View {
@@ -51,27 +52,11 @@ struct EditContainerView: View {
                     
                 }
             }
-            .onAppear {
-//                if let recipient = recipient {
-//                    name = recipient.name ?? ""
-//                    volume = String(recipient.volume)
-//                    iconString = recipient.icon ?? ""
-//                    colorString = recipient.color ?? ""
-//                    buttonText = "Edit"
-//                } else {
-//                    name = ""
-//                    volume = ""
-//                    iconString = ""
-//                    colorString = ""
-//                }
-            }
             
-            .alert(isPresented: $isShowingAlertName, content: {
-                Alert(title: Text("Your name must be at least 1 character long 😪"))
+            .alert(isPresented: $isShowingAlert, content: {
+                Alert(title: Text(alertMessage))
             })
-            .alert(isPresented: $isShowingAlertVolume, content: {
-                Alert(title: Text("Your must specify a volume for your recipient 😪"))
-            })
+            
             .navigationTitle("Edit Container")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -80,8 +65,8 @@ struct EditContainerView: View {
                         dismiss()
                     } label: {
                         Image(systemName: "xmark.circle.fill")
-                            .font(.title2)
-                            .foregroundColor(Color(.systemGray3))
+                            .font(.title3)
+                            .foregroundColor(Color(.systemGray2))
                     }
                     
                 }
@@ -89,10 +74,12 @@ struct EditContainerView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                             if (name.count == 0) {
-                                isShowingAlertName = true
+                                alertMessage = "Your name must be at least 1 character long 🥲"
+                                isShowingAlert = true
                             } else {
                                 if volume.count == 0 {
-                                    isShowingAlertVolume = true
+                                    alertMessage = "Your must specify a volume for your recipient 🥲"
+                                    isShowingAlert = true
                                 } else {
                                     updateRecipient()
                                     dismiss()
@@ -118,6 +105,7 @@ struct EditContainerView: View {
             self.iconString = self.recipient.icon!
             self.colorString = self.recipient.color!
         }
+
     }
     
     func updateRecipient() {

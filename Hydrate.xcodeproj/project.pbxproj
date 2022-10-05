@@ -31,6 +31,7 @@
 		AAA4E3E428C2535A00C366B9 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3E328C2535A00C366B9 /* TabsView.swift */; };
 		AAA4E3E628C253CE00C366B9 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3E528C253CE00C366B9 /* StatsView.swift */; };
 		AAC706ED28EB07270044BBD0 /* EditContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC706EC28EB07270044BBD0 /* EditContainerView.swift */; };
+		AAC706EF28EC71400044BBD0 /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC706EE28EC71400044BBD0 /* AppearanceView.swift */; };
 		AAC8369B28E5BADB003F64F3 /* GridContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */; };
 		AAC8369D28E5CC2B003F64F3 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		AAA4E3E328C2535A00C366B9 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		AAA4E3E528C253CE00C366B9 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		AAC706EC28EB07270044BBD0 /* EditContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerView.swift; sourceTree = "<group>"; };
+		AAC706EE28EC71400044BBD0 /* AppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
 		AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContainerCell.swift; sourceTree = "<group>"; };
 		AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +140,7 @@
 				AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */,
 				AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */,
 				AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */,
+				AAC706EE28EC71400044BBD0 /* AppearanceView.swift */,
 				AAA4E3E528C253CE00C366B9 /* StatsView.swift */,
 				AA9EE38928D315C30045D912 /* ConfettiModifier.swift */,
 				AAA4E3D328C23CC100C366B9 /* Assets.xcassets */,
@@ -246,6 +249,7 @@
 				AAA4E3E228C2491000C366B9 /* MainRingView.swift in Sources */,
 				AAC8369B28E5BADB003F64F3 /* GridContainerCell.swift in Sources */,
 				AA9EE39928D89FCD0045D912 /* String+Ext.swift in Sources */,
+				AAC706EF28EC71400044BBD0 /* AppearanceView.swift in Sources */,
 				AAA4E3E428C2535A00C366B9 /* TabsView.swift in Sources */,
 				AAA4E3E628C253CE00C366B9 /* StatsView.swift in Sources */,
 				AA7210EA28CCC7A20041779D /* Recipient.swift in Sources */,
