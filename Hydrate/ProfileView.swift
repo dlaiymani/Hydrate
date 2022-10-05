@@ -75,6 +75,10 @@ struct ProfileView: View {
     @State private var automaticGoal = true
     @State private var goal = ""
     
+    @State private var isShowingAlert = false
+    @State private var alertMessage = ""
+    
+    
     private var sexTab = ["F", "M", "O"]
     var ages = Array(5...130)
     var weights = Array(20...200)
@@ -183,15 +187,57 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        dismiss()
+                        print(goal.count)
+                        if (goal.count == 0 && !automaticGoal) {
+                            alertMessage = "Your must specify a value for your goal 💪"
+                            isShowingAlert = true
+                        } else {
+                            if profile.count == 0 { // Add
+                                let newProfileEntity = ProfileEntity(context: PersistenceController.shared.container.viewContext)
+                                newProfileEntity.sex = self.sex
+                                newProfileEntity.units = self.unit
+                                newProfileEntity.age = Int16(self.age)
+                                newProfileEntity.weight = Int16(self.weight)
+                                newProfileEntity.automaticGoal = self.automaticGoal
+                                newProfileEntity.activityLevel = Int16(self.physcicalActivity)
+                                newProfileEntity.goal = Double(self.goal) ?? 0.0
+                                PersistenceController.shared.save()
+                            } else { // Edit
+                                profile.first!.sex = self.sex
+                                profile.first!.units = self.unit
+                                profile.first!.age = Int16(self.age)
+                                profile.first!.weight = Int16(self.weight)
+                                profile.first!.automaticGoal = self.automaticGoal
+                                profile.first!.activityLevel = Int16(self.physcicalActivity)
+                                profile.first!.goal = Double(self.goal) ?? 0.0
+                                do {
+                                    let viewContext = profile.first!.managedObjectContext
+                                    try viewContext?.save()
+                                    
+                                } catch {
+                                    fatalError("Error \(error.localizedDescription)")
+                                }
+                                
+                            }
+                            dismiss()
+                        }
+                        
+                       
                     } label: {
-                        Image(systemName: "x.circle.fill")
-                        //     .font(.title)
-                            .foregroundColor(Color(.systemGray4))
+                        Text("Save")
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .overlay(content: {
+                                Capsule().fill(Color.purple.opacity(0.05))
+                            })
                     }
                 }
             }
         }
+        .alert(isPresented: $isShowingAlert, content: {
+            Alert(title: Text(alertMessage))
+        })
         .onAppear {
             DispatchQueue.main.async {
                 
@@ -201,37 +247,16 @@ struct ProfileView: View {
                 self.physcicalActivity = Int(profile.first?.activityLevel ?? 2)
                 self.unit = profile.first?.units ?? .oz
                 self.automaticGoal = profile.first?.automaticGoal ?? false
+                if let goalDouble = profile.first?.goal {
+                    self.goal = "\(goalDouble)"
+                } else {
+                    self.goal = ""
+                }
             }
             
         }
         .onDisappear {
-            if profile.count == 0 { // Add
-                let newProfileEntity = ProfileEntity(context: PersistenceController.shared.container.viewContext)
-                newProfileEntity.sex = self.sex
-                newProfileEntity.units = self.unit
-                newProfileEntity.age = Int16(self.age)
-                newProfileEntity.weight = Int16(self.weight)
-                newProfileEntity.automaticGoal = self.automaticGoal
-                newProfileEntity.activityLevel = Int16(self.physcicalActivity)
-                PersistenceController.shared.save()
-            } else { // Edit
-                
-                
-                profile.first!.sex = self.sex
-                profile.first!.units = self.unit
-                profile.first!.age = Int16(self.age)
-                profile.first!.weight = Int16(self.weight)
-                profile.first!.automaticGoal = self.automaticGoal
-                profile.first!.activityLevel = Int16(self.physcicalActivity)
-                
-                do {
-                    let viewContext = profile.first!.managedObjectContext
-                    try viewContext?.save()
-                    
-                } catch {
-                    fatalError("Error \(error.localizedDescription)")
-                }
-            }
+          
         }
     }
     
