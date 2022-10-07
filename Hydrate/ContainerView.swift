@@ -10,6 +10,10 @@ import SwiftUI
 struct ContainerView: View {
     
     @ObservedObject var container: RecipientEntity // because it is a class!!!!
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.volume)], predicate: NSPredicate(format: "isFavorite == true")) var favoriteRecipients: FetchedResults<RecipientEntity>
+    
+    @State private var isShowingAlert = false
+
     
     
     var body: some View {
@@ -23,8 +27,12 @@ struct ContainerView: View {
                 
                 Button {
                     withAnimation {
-                        container.isFavorite.toggle()
-                        PersistenceController.shared.save()
+                        if ((favoriteRecipients.count == 4) && (container.isFavorite == false)) {
+                            isShowingAlert = true
+                        } else {
+                            container.isFavorite.toggle()
+                            PersistenceController.shared.save()
+                        }
                     }
                     
                 } label: {
@@ -50,6 +58,9 @@ struct ContainerView: View {
         .background(Color(container.color ?? "Lavender"))
         .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
         .foregroundColor(.white)
+        .alert(isPresented: $isShowingAlert, content: {
+            Alert(title: Text("You must favorite at most 4 recipients 😎"))
+        })
     }
 }
 

@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var volumeInPercent = 50.0
+    
+    @FetchRequest(sortDescriptors: []) var profile: FetchedResults<ProfileEntity>
+
+    @State private var volumeInPercent = 0.0
     @State private var showProfileSheet = false
     
   //  @EnvironmentObject var recipientViewModel: RecipientsViewModel
@@ -32,7 +35,9 @@ struct MainView: View {
                 
                 HStack {
                     Image(systemName: "goforward")
-                    Text("50% / 2000 cl")
+                    Text(String(format: "%.2f",volumeInPercent) + "% / " + String(format: "%.0f", profile[0].goal) + " cl")
+                   // Text(String(format: "%.2f % / %.0f cl",volumeInPercent, profile[0].goal))
+
                 }
                 .frame(width: 170, height: 40)
                 .foregroundColor(.accentColor)
@@ -43,7 +48,7 @@ struct MainView: View {
                 Spacer()
                 
                 HStack(alignment: .center) {
-                    PlusButtonView()
+                    PlusButtonView(volumeInPercent: $volumeInPercent)
                 }
                 .padding()
                 
