@@ -244,10 +244,11 @@ struct SettingsView: View {
                         } label: {
                             Text("Share App")
                                 .fontWeight(.semibold)
+                                .foregroundColor(.accentColor)
                                 .padding(.horizontal, 10)
                                 .padding(.vertical, 5)
                                 .overlay(content: {
-                                    Capsule().fill(Color.purple.opacity(0.05))
+                                    Capsule().fill(Color.indigo.opacity(0.05))
                                 })
                         }
                     }

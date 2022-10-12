@@ -42,7 +42,7 @@ struct GridContainersView: View {
                         Text("Favorites")
                         Spacer()
                     }
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(.purple)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding()
@@ -62,7 +62,7 @@ struct GridContainersView: View {
                         Text("Others")
                         Spacer()
                     }
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(.purple)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding()
@@ -76,7 +76,7 @@ struct GridContainersView: View {
                         showingSheet.toggle()
                     } label: {
                         Image(systemName: "plus")
-                            .foregroundColor(.purple)
+                         //   .foregroundColor(.purple)
                     }
                 }
             }

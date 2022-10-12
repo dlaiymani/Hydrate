@@ -30,7 +30,6 @@ struct CircleDayView: View {
             }
                 
                 
-            
             Gauge(value: volumeInPercent, in: 0...100) {
                 Text("cl")
             } currentValueLabel: {

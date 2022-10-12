@@ -11,36 +11,40 @@ struct MainView: View {
     
     @FetchRequest(sortDescriptors: []) var profile: FetchedResults<ProfileEntity>
 
-    @State private var volumeInPercent = 0.0
+    @State private var volume = 0.0
+    @State private var volumeInPercentage = 0.0
     @State private var showProfileSheet = false
+    @State private var goalReached = false
+    @State private var alreadyCongrats = false
+    @State private var showCongratsSheet = false
     
-  //  @EnvironmentObject var recipientViewModel: RecipientsViewModel
-
-    @StateObject var recipientVM = RecipientsViewModel()
-    
-    var minVolume = 0.0
-    var maxVolume = 100.0
+        
     var body: some View {
         
         NavigationStack {
             
-           
             VStack {
                 WeekView()
-                //       .padding(.top, 40)
+                
                 Spacer()
                 
-                MainRingView(volumeInPercent: $volumeInPercent)
-                    .padding()
+                ZStack {
+                    MainRingView(volumeInPercent: $volumeInPercentage)
+                        .padding()
+                    if volumeInPercentage >= 100 {
+                        ConfettisView()
+                    }
+                }
                 
                 HStack {
-                    Image(systemName: "goforward")
-                    Text(String(format: "%.2f",volumeInPercent) + "% / " + String(format: "%.0f", profile[0].goal) + " cl")
-                   // Text(String(format: "%.2f % / %.0f cl",volumeInPercent, profile[0].goal))
-
+                  Image(systemName: "trophy")
+                    
+                    Text(String(format: "%.0f",volume) + " / " +
+                                        String(format: "%.0f", profile[0].goal) + " cl")
                 }
-                .frame(width: 170, height: 40)
-                .foregroundColor(.accentColor)
+                .frame(width: 190, height: 40)
+                .foregroundColor(.purple)
+
                 .fontWeight(.bold)
                 .background(Capsule().fill(Color(.systemGray6)))
                 .padding()
@@ -48,38 +52,67 @@ struct MainView: View {
                 Spacer()
                 
                 HStack(alignment: .center) {
-                    PlusButtonView(volumeInPercent: $volumeInPercent)
+                    PlusButtonView(volume: $volume)
+                    
                 }
                 .padding()
-                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         showProfileSheet = true
                     } label: {
-                        Image(systemName: "gear")
-                            .foregroundColor(.purple)
-                    }
+                        Image(systemName: "gear")                    }
                 }
             }
-            .onAppear {
-               // recipientViewModel.loadRecipients()
+        }
+        .onChange(of: volume) { newVolume in
+            volumeInPercentage = computePercentage(goal: profile[0].goal, drinkedVolume: newVolume)
+            if volumeInPercentage > 100 {
+                volumeInPercentage = 100
+                goalReached = true
+                showCongratsSheet = goalReached && !alreadyCongrats
             }
         }
         .sheet(isPresented: $showProfileSheet) {
             SettingsView(showProfileSheet: $showProfileSheet)
         }
+        .sheet(isPresented: $showCongratsSheet, onDismiss: {
+            alreadyCongrats = true
+        }) {
+                GoalReachedView()
+                    .presentationDetents([.fraction(0.5)])
+        }
         
     }
     
-    
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
+    func computePercentage(goal: Double, drinkedVolume: Double) -> Double {
+        return (drinkedVolume / goal) * 100
     }
 }
+
+
+struct ConfettisView: View {
+    var body: some View {
+        Circle()
+            .fill(Color.green)
+            .frame(width: 12, height: 12)
+            .modifier(ParticlesModifier())
+        Circle()
+            .fill(Color.blue)
+            .frame(width: 12, height: 12)
+            .modifier(ParticlesModifier())
+        Circle()
+            .fill(Color.red)
+            .frame(width: 12, height: 12)
+            .modifier(ParticlesModifier())
+    }
+}
+
+//struct MainView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainView()
+//    }
+//}
 
 

@@ -35,7 +35,8 @@ struct TabsView: View {
                     Text("Containers")
                 }
         }
-        .accentColor(.purple)
+       // .accentColor(.purple)
+        .accentColor(.indigo)
         .preferredColorScheme(colorScheme == 0 ? .light : .dark)
 
        

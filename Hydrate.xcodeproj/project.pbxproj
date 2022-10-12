@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA16892328F6EE810033A47A /* GoalReachedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA16892228F6EE810033A47A /* GoalReachedView.swift */; };
 		AA26A36E28CC8CC30005D8B6 /* GridContainersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26A36D28CC8CC30005D8B6 /* GridContainersView.swift */; };
 		AA41202928C77D8500A1E65A /* PlusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41202828C77D8500A1E65A /* PlusButtonView.swift */; };
 		AA5EBBFA28D0DBF000B2BD46 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */; };
@@ -20,7 +21,6 @@
 		AA9EE38D28D4C2000045D912 /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE38B28D4C2000045D912 /* Hydrate.xcdatamodeld */; };
 		AA9EE39128D4D1DE0045D912 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE39028D4D1DE0045D912 /* PersistenceController.swift */; };
 		AA9EE39628D771DD0045D912 /* RecipientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE39528D771DD0045D912 /* RecipientsViewModel.swift */; };
-		AA9EE39928D89FCD0045D912 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE39828D89FCD0045D912 /* String+Ext.swift */; };
 		AAA4E3D028C23CC000C366B9 /* HydrateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */; };
 		AAA4E3D228C23CC000C366B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3D128C23CC000C366B9 /* MainView.swift */; };
 		AAA4E3D428C23CC100C366B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA4E3D328C23CC100C366B9 /* Assets.xcassets */; };
@@ -37,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA16892228F6EE810033A47A /* GoalReachedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalReachedView.swift; sourceTree = "<group>"; };
 		AA26A36D28CC8CC30005D8B6 /* GridContainersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContainersView.swift; sourceTree = "<group>"; };
 		AA41202828C77D8500A1E65A /* PlusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonView.swift; sourceTree = "<group>"; };
 		AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		AA9EE38C28D4C2000045D912 /* Hydrate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrate.xcdatamodel; sourceTree = "<group>"; };
 		AA9EE39028D4D1DE0045D912 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		AA9EE39528D771DD0045D912 /* RecipientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientsViewModel.swift; sourceTree = "<group>"; };
-		AA9EE39828D89FCD0045D912 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		AAA4E3CC28C23CC000C366B9 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateApp.swift; sourceTree = "<group>"; };
 		AAA4E3D128C23CC000C366B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -97,7 +97,6 @@
 		AA9EE39728D89FC10045D912 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AA9EE39828D89FCD0045D912 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -121,10 +120,10 @@
 		AAA4E3CE28C23CC000C366B9 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
+				AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */,
 				AA9EE39728D89FC10045D912 /* Extensions */,
 				AA9EE39428D771C90045D912 /* ViewModels */,
 				AA7210EB28CCC7D10041779D /* Model */,
-				AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */,
 				AAA4E3E328C2535A00C366B9 /* TabsView.swift */,
 				AAA4E3D128C23CC000C366B9 /* MainView.swift */,
 				AAA4E3DD28C240FE00C366B9 /* CircleDayView.swift */,
@@ -148,6 +147,7 @@
 				AA7210EC28CCE2E20041779D /* SearchBar.swift */,
 				AA9EE38B28D4C2000045D912 /* Hydrate.xcdatamodeld */,
 				AA9EE39028D4D1DE0045D912 /* PersistenceController.swift */,
+				AA16892228F6EE810033A47A /* GoalReachedView.swift */,
 			);
 			path = Hydrate;
 			sourceTree = "<group>";
@@ -248,9 +248,9 @@
 				AAA4E3D228C23CC000C366B9 /* MainView.swift in Sources */,
 				AAA4E3E228C2491000C366B9 /* MainRingView.swift in Sources */,
 				AAC8369B28E5BADB003F64F3 /* GridContainerCell.swift in Sources */,
-				AA9EE39928D89FCD0045D912 /* String+Ext.swift in Sources */,
 				AAC706EF28EC71400044BBD0 /* AppearanceView.swift in Sources */,
 				AAA4E3E428C2535A00C366B9 /* TabsView.swift in Sources */,
+				AA16892328F6EE810033A47A /* GoalReachedView.swift in Sources */,
 				AAA4E3E628C253CE00C366B9 /* StatsView.swift in Sources */,
 				AA7210EA28CCC7A20041779D /* Recipient.swift in Sources */,
 				AAA4E3D028C23CC000C366B9 /* HydrateApp.swift in Sources */,

@@ -13,7 +13,7 @@ struct PlusButtonView: View {
     
     
     @State var buttonPressed = false
-    @Binding var volumeInPercent: Double
+    @Binding var volume: Double
 
     
     var numberOfFavorites: Int {
@@ -32,41 +32,25 @@ struct PlusButtonView: View {
                     .animation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0))
             }
             .padding(16)
-            .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color("PurpleGradient")]), startPoint: .top, endPoint: .bottom))
+            .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.purple, Color.indigo]), startPoint: .topLeading, endPoint: .bottomTrailing))
             .mask(Circle())
             .shadow(color: Color.purple, radius: 5 )
             .zIndex(10)
             
-            if buttonPressed {
-//                Circle()
-//                    .fill(Color.green)
-//                    .frame(width: 12, height: 12)
-//                    .modifier(ParticlesModifier())
-//                Circle()
-//                    .fill(Color.blue)
-//                    .frame(width: 12, height: 12)
-//                    .modifier(ParticlesModifier())
-//                Circle()
-//                    .fill(Color.red)
-//                    .frame(width: 12, height: 12)
-//                    .modifier(ParticlesModifier())
-            }
-            
-            
             if numberOfFavorites == 1 {
-                GlassButton(buttonPressed: $buttonPressed, volumeInPercent: $volumeInPercent, recipient: recipients[0], offsetX: -40, offsetY: -80, delay: 0.1)
+                GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[0], offsetX: -40, offsetY: -80, delay: 0.1)
             } else if numberOfFavorites == 2 {
-                GlassButton(buttonPressed: $buttonPressed, volumeInPercent: $volumeInPercent, recipient: recipients[0], offsetX: -40, offsetY: -80, delay: 0.1)
-                GlassButton(buttonPressed: $buttonPressed, volumeInPercent: $volumeInPercent, recipient: recipients[1], offsetX: 40, offsetY: -80, delay: 0.3)
+                GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[0], offsetX: -40, offsetY: -80, delay: 0.1)
+                GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[1], offsetX: 40, offsetY: -80, delay: 0.3)
             } else if numberOfFavorites == 3 {
-                GlassButton(buttonPressed: $buttonPressed, volumeInPercent: $volumeInPercent, recipient: recipients[1], offsetX: -40, offsetY: -80, delay: 0.1)
-                GlassButton(buttonPressed: $buttonPressed, volumeInPercent: $volumeInPercent, recipient: recipients[2], offsetX: 40, offsetY: -80, delay: 0.3)
-                GlassButton(buttonPressed: $buttonPressed, volumeInPercent: $volumeInPercent, recipient: recipients[0], offsetX: -90, delay: 0 )
+                GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[1], offsetX: -40, offsetY: -80, delay: 0.1)
+                GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[2], offsetX: 40, offsetY: -80, delay: 0.3)
+                GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[0], offsetX: -90, delay: 0 )
             } else if numberOfFavorites == 4 {
-                GlassButton(buttonPressed: $buttonPressed, volumeInPercent: $volumeInPercent, recipient: recipients[1], offsetX: -40, offsetY: -80, delay: 0.1)
-                GlassButton(buttonPressed: $buttonPressed, volumeInPercent: $volumeInPercent, recipient: recipients[2], offsetX: 40, offsetY: -80, delay: 0.3)
-                GlassButton(buttonPressed: $buttonPressed, volumeInPercent: $volumeInPercent, recipient: recipients[0], offsetX: -90, delay: 0)
-                GlassButton(buttonPressed: $buttonPressed, volumeInPercent: $volumeInPercent, recipient: recipients[3], offsetX: 90, delay: 0.4)
+                GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[1], offsetX: -40, offsetY: -80, delay: 0.1)
+                GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[2], offsetX: 40, offsetY: -80, delay: 0.3)
+                GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[0], offsetX: -90, delay: 0)
+                GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[3], offsetX: 90, delay: 0.4)
             }
         }
     }
@@ -76,11 +60,8 @@ struct PlusButtonView: View {
 
 struct GlassButton: View {
     
-    @FetchRequest(sortDescriptors: []) var profile: FetchedResults<ProfileEntity>
-
-    
     @Binding var buttonPressed: Bool
-    @Binding var volumeInPercent: Double
+    @Binding var volume: Double
     @State var recipient: RecipientEntity
     var offsetX = 0
     var offsetY = 0
@@ -88,8 +69,7 @@ struct GlassButton: View {
         
     var body: some View {
         Button {
-            
-            volumeInPercent += computePercentage(goal: profile[0].goal, drinkedVolume: recipient.volume)
+            volume += recipient.volume
         } label: {
             VStack {
                 Image(systemName: recipient.icon ?? "cup")
@@ -106,21 +86,13 @@ struct GlassButton: View {
         .offset(x: buttonPressed ? CGFloat(offsetX) : 0,
                 y: buttonPressed ? CGFloat(offsetY) : 0)
         .scaleEffect(buttonPressed ? 1 : 0)
-        .animation(.interpolatingSpring(stiffness: 170, damping: 15).delay(Double(delay)))
-      
-    }
-    
-    func computePercentage(goal: Double, drinkedVolume: Double) -> Double {
-        return (drinkedVolume / goal) * 100
+        .animation(.interpolatingSpring(stiffness: 170, damping: 15).delay(Double(delay)), value: buttonPressed)
     }
 }
 
 
-
-
-
 struct PlusButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        PlusButtonView(volumeInPercent: .constant(0.2))
+        PlusButtonView(volume: .constant(0.2))
     }
 }
