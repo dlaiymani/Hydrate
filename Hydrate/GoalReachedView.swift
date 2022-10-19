@@ -13,6 +13,8 @@ struct GoalReachedView: View {
     @State private var scale = 0.5
     @Binding var alreadyCongrats: Bool
     @State var counter: Int = 0
+    
+    @State var nbOfDays = 250
 
 
     
@@ -33,8 +35,37 @@ struct GoalReachedView: View {
                         Image(systemName: "trophy.fill")
                     }
                     
+                    Divider()
+                        .overlay(.white)
+                    
+                    HStack(spacing: 40) {
+                        VStack(spacing: 10) {
+                            RollingText(font: .title2, weight: .bold, value: $nbOfDays)
+                            
+                            Text("DAYS \n COMPETED")
+                                .font(.footnote)
+                                .lineLimit(2, reservesSpace: true)
+                                .multilineTextAlignment(.center)
+                            
+                                
+                        }
+                        
+                        VStack(spacing: 10) {
+                            RollingText(font: .title2, weight: .bold, value: $nbOfDays)
+                            
+                            Text("DAILY \n STREAK")
+                                .font(.footnote)
+                                .lineLimit(2, reservesSpace: true)
+                                .multilineTextAlignment(.center)
+                        }
+                        
+                        
+                    }
+                    
+                    
+                    
                 }
-                .frame(width: 300, height: 100)
+                .frame(width: 300, height: 200)
                 .foregroundColor(.white)
                 .padding()
                 .background(LinearGradient(colors: [Color.purple, Color.indigo], startPoint: .topLeading, endPoint: .bottomTrailing))
@@ -51,12 +82,18 @@ struct GoalReachedView: View {
                 }
                 
             }
+            .padding(.bottom, 30)
             
             Button {
                 alreadyCongrats = true
-                print("hello")
             } label: {
                 Text("Keep Going")
+                    .fontWeight(.bold)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .overlay(content: {
+                        Capsule().fill(Color.purple.opacity(0.2))
+                    })
             }
         }
         .frame(height: 300)
