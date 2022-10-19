@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainRingView: View {
     
-    @Binding var volumeInPercent: Double 
+    @Binding var volumeInPercent: Int
     
     let gradient = Gradient(colors: [.purple, .indigo])
     
@@ -17,12 +17,15 @@ struct MainRingView: View {
         
         ZStack {
             
-            Gauge(value: volumeInPercent, in: 0...100) {
+            Gauge(value: Double(volumeInPercent), in: 0...100) {
                 
             } currentValueLabel: {
                 VStack {
-                    Text("\(Int(volumeInPercent))%")
-                        .font(.caption)
+                    HStack(spacing: 0) {
+                        RollingText(font: .caption, weight: .regular, value: $volumeInPercent)
+                        Text("%")
+                            .font(.caption)
+                    }
                 }
                 .foregroundColor(Color.purple)
             }

@@ -34,6 +34,8 @@
 		AAC706EF28EC71400044BBD0 /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC706EE28EC71400044BBD0 /* AppearanceView.swift */; };
 		AAC8369B28E5BADB003F64F3 /* GridContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */; };
 		AAC8369D28E5CC2B003F64F3 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */; };
+		AADA81C528FFD05B00B0912A /* RollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA81C428FFD05B00B0912A /* RollingText.swift */; };
+		AADA81C828FFF0C500B0912A /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AADA81C728FFF0C500B0912A /* ConfettiSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,7 @@
 		AAC706EE28EC71400044BBD0 /* AppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
 		AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContainerCell.swift; sourceTree = "<group>"; };
 		AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		AADA81C428FFD05B00B0912A /* RollingText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollingText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AADA81C828FFF0C500B0912A /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +141,7 @@
 				AAC706EC28EB07270044BBD0 /* EditContainerView.swift */,
 				AA5F1CEA28CF14A90070229D /* IconPickerView.swift */,
 				AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */,
+				AADA81C428FFD05B00B0912A /* RollingText.swift */,
 				AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */,
 				AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */,
 				AAC706EE28EC71400044BBD0 /* AppearanceView.swift */,
@@ -176,6 +181,9 @@
 			dependencies = (
 			);
 			name = Hydrate;
+			packageProductDependencies = (
+				AADA81C728FFF0C500B0912A /* ConfettiSwiftUI */,
+			);
 			productName = Hydrate;
 			productReference = AAA4E3CC28C23CC000C366B9 /* Hydrate.app */;
 			productType = "com.apple.product-type.application";
@@ -204,6 +212,9 @@
 				Base,
 			);
 			mainGroup = AAA4E3C328C23CC000C366B9;
+			packageReferences = (
+				AADA81C628FFF0C500B0912A /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			productRefGroup = AAA4E3CD28C23CC000C366B9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,6 +265,7 @@
 				AAA4E3E628C253CE00C366B9 /* StatsView.swift in Sources */,
 				AA7210EA28CCC7A20041779D /* Recipient.swift in Sources */,
 				AAA4E3D028C23CC000C366B9 /* HydrateApp.swift in Sources */,
+				AADA81C528FFD05B00B0912A /* RollingText.swift in Sources */,
 				AA5F1CE928CF04940070229D /* AddContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,6 +467,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AADA81C628FFF0C500B0912A /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AADA81C728FFF0C500B0912A /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AADA81C628FFF0C500B0912A /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AA9EE38B28D4C2000045D912 /* Hydrate.xcdatamodeld */ = {

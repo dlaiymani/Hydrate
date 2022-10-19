@@ -14,6 +14,7 @@ struct PlusButtonView: View {
     
     @State var buttonPressed = false
     @Binding var volume: Double
+    var goal: Double
 
     
     var numberOfFavorites: Int {
@@ -31,6 +32,7 @@ struct PlusButtonView: View {
                     .font(.system(size: 38, weight: .bold))
                     .animation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0))
             }
+            
             .padding(16)
             .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.purple, Color.indigo]), startPoint: .topLeading, endPoint: .bottomTrailing))
             .mask(Circle())
@@ -51,6 +53,11 @@ struct PlusButtonView: View {
                 GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[2], offsetX: 40, offsetY: -80, delay: 0.3)
                 GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[0], offsetX: -90, delay: 0)
                 GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[3], offsetX: 90, delay: 0.4)
+            }
+        }
+        .onChange(of: volume) {newVolume in
+            if volume >= goal {
+                buttonPressed.toggle()
             }
         }
     }
@@ -93,6 +100,6 @@ struct GlassButton: View {
 
 struct PlusButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        PlusButtonView(volume: .constant(0.2))
+        PlusButtonView(volume: .constant(0.2), goal: 1200)
     }
 }

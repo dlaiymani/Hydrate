@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct GoalReachedView: View {
-    
-    @Environment(\.dismiss) private var dismiss
-    
+        
     @State private var scale = 0.5
+    @Binding var alreadyCongrats: Bool
+    @State var counter: Int = 0
+
 
     
     var body: some View {
         VStack {
-            Spacer()
             ZStack {
                 VStack(spacing:12) {
                     Text("Congratulations 👏")
@@ -49,22 +50,28 @@ struct GoalReachedView: View {
                     }
                 }
                 
-                ConfettisView()
             }
-            Spacer()
+            
             Button {
-                dismiss()
+                alreadyCongrats = true
+                print("hello")
             } label: {
                 Text("Keep Going")
             }
-            Spacer()
-
+        }
+        .frame(height: 300)
+        .confettiCannon(counter: $counter, num: 50)
+        .onAppear {
+            counter += 1
         }
     }
 }
 
 struct GoalReachedView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalReachedView()
+        GoalReachedView(alreadyCongrats: .constant(false))
+            .frame(width: 300, height: 300)
+            .previewLayout(.sizeThatFits)
+
     }
 }
