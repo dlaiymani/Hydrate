@@ -15,6 +15,7 @@ class RecipientsViewModel: ObservableObject {
     
     init() {
         if !userOnboarded {
+            addProfile()
             for recipient in Recipient.mockContainerData {
                 addRecipient(recipient: recipient)
             }
@@ -34,6 +35,18 @@ class RecipientsViewModel: ObservableObject {
 
     }
     
+    
+    func addProfile() {
+        let newProfile = ProfileEntity(context: PersistenceController.shared.container.viewContext)
+        newProfile.goal = 1200
+        newProfile.weight = 70
+        newProfile.activityLevel = 4
+        newProfile.age = 40
+        newProfile.automaticGoal = true
+        newProfile.sex = .F
+        newProfile.units = .cl
+        PersistenceController.shared.save()
+    }
     
     func deleteRecipient(_ recipient: RecipientEntity) {
         PersistenceController.shared.delete(recipient)
