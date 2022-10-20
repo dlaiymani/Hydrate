@@ -12,6 +12,7 @@ struct MainView: View {
     @FetchRequest(sortDescriptors: []) var profile: FetchedResults<ProfileEntity>
     
     @State private var volume = 0.0
+    @State private var volumeForCpt = 0
     @State private var volumeInPercentage = 0
     @State private var showProfileSheet = false
     @State private var goalReached = false
@@ -45,12 +46,17 @@ struct MainView: View {
                     HStack {
                         Image(systemName: "trophy")
                         
-                        Text(String(format: "%.0f",volume) + " / " +
-                             String(format: "%.0f", profile[0].goal) + " cl")
+                        HStack(spacing: 0) {
+                            RollingText(font: .body, weight: .regular, value: $volumeForCpt)
+                            Text(String(" / " + String(format: "%.0f", profile[0].goal) + " cl"))
+                        }
+                            
+                     //   Text(String(format: "%.0f",volume) + " / " +
+                       //      String(format: "%.0f", profile[0].goal) + " cl")
                     }
                     .frame(width: 190, height: 40)
                     .foregroundColor(.purple)
-                    .fontWeight(.bold)
+                    .fontWeight(.regular)
                     .background(Capsule().fill(Color(.systemGray6)))
                     .padding()
                     
@@ -76,6 +82,7 @@ struct MainView: View {
         
         .onChange(of: volume) { newVolume in
             volumeInPercentage = Int(computePercentage(goal: profile[0].goal, drinkedVolume: newVolume))
+            volumeForCpt = Int(volume)
             if volumeInPercentage > 100 {
                 volumeInPercentage = 100
                 goalReached = true

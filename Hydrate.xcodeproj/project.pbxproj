@@ -21,6 +21,7 @@
 		AA9EE38D28D4C2000045D912 /* Hydrate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE38B28D4C2000045D912 /* Hydrate.xcdatamodeld */; };
 		AA9EE39128D4D1DE0045D912 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE39028D4D1DE0045D912 /* PersistenceController.swift */; };
 		AA9EE39628D771DD0045D912 /* RecipientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9EE39528D771DD0045D912 /* RecipientsViewModel.swift */; };
+		AAA1DFE4290185C700A28714 /* WalkThroughScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA1DFE3290185C700A28714 /* WalkThroughScreen.swift */; };
 		AAA4E3D028C23CC000C366B9 /* HydrateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */; };
 		AAA4E3D228C23CC000C366B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4E3D128C23CC000C366B9 /* MainView.swift */; };
 		AAA4E3D428C23CC100C366B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA4E3D328C23CC100C366B9 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		AA9EE38C28D4C2000045D912 /* Hydrate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hydrate.xcdatamodel; sourceTree = "<group>"; };
 		AA9EE39028D4D1DE0045D912 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		AA9EE39528D771DD0045D912 /* RecipientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientsViewModel.swift; sourceTree = "<group>"; };
+		AAA1DFE3290185C700A28714 /* WalkThroughScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughScreen.swift; sourceTree = "<group>"; };
 		AAA4E3CC28C23CC000C366B9 /* Hydrate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrateApp.swift; sourceTree = "<group>"; };
 		AAA4E3D128C23CC000C366B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -146,13 +148,14 @@
 				AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */,
 				AAC706EE28EC71400044BBD0 /* AppearanceView.swift */,
 				AAA4E3E528C253CE00C366B9 /* StatsView.swift */,
+				AA16892228F6EE810033A47A /* GoalReachedView.swift */,
 				AA9EE38928D315C30045D912 /* ConfettiModifier.swift */,
 				AAA4E3D328C23CC100C366B9 /* Assets.xcassets */,
 				AAA4E3D528C23CC100C366B9 /* Preview Content */,
 				AA7210EC28CCE2E20041779D /* SearchBar.swift */,
 				AA9EE38B28D4C2000045D912 /* Hydrate.xcdatamodeld */,
 				AA9EE39028D4D1DE0045D912 /* PersistenceController.swift */,
-				AA16892228F6EE810033A47A /* GoalReachedView.swift */,
+				AAA1DFE3290185C700A28714 /* WalkThroughScreen.swift */,
 			);
 			path = Hydrate;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				AA9EE39628D771DD0045D912 /* RecipientsViewModel.swift in Sources */,
 				AA9EE38D28D4C2000045D912 /* Hydrate.xcdatamodeld in Sources */,
 				AAA4E3E028C241F600C366B9 /* WeekView.swift in Sources */,
+				AAA1DFE4290185C700A28714 /* WalkThroughScreen.swift in Sources */,
 				AAA4E3DE28C240FE00C366B9 /* CircleDayView.swift in Sources */,
 				AA5F1CEB28CF14A90070229D /* IconPickerView.swift in Sources */,
 				AAC706ED28EB07270044BBD0 /* EditContainerView.swift in Sources */,

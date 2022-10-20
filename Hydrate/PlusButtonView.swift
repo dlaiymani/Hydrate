@@ -29,7 +29,7 @@ struct PlusButtonView: View {
                 Image(systemName: "plus")
                     .rotationEffect(.degrees(buttonPressed ? 45 : 0))
                     .foregroundColor(.white)
-                    .font(.system(size: 38, weight: .bold))
+                    .font(.system(size: 38, weight: .regular))
                     .animation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0))
             }
             
@@ -55,11 +55,6 @@ struct PlusButtonView: View {
                 GlassButton(buttonPressed: $buttonPressed, volume: $volume, recipient: recipients[3], offsetX: 90, delay: 0.4)
             }
         }
-        .onChange(of: volume) {newVolume in
-            if volume >= goal {
-                buttonPressed.toggle()
-            }
-        }
     }
 }
 
@@ -77,6 +72,7 @@ struct GlassButton: View {
     var body: some View {
         Button {
             volume += recipient.volume
+            buttonPressed.toggle()
         } label: {
             VStack {
                 Image(systemName: recipient.icon ?? "cup")
