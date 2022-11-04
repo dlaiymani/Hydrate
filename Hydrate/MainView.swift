@@ -19,6 +19,16 @@ struct MainView: View {
     @State var alreadyCongrats = false
     @State private var showCongratsSheet = false
     
+    let date: Date
+    let dateFormatter: DateFormatter
+        
+    init() {
+        date = Date()
+        dateFormatter = DateFormatter()
+      //  dateFormatter.dateStyle = .medium
+        dateFormatter.dateFormat = "E d MMM" // OR "dd-MM-yyyy"
+    }
+    
     
     var body: some View {
         
@@ -35,6 +45,12 @@ struct MainView: View {
                     WeekView()
                     
                     Spacer()
+                    
+                    Text(date, formatter: dateFormatter)
+                        .font(.body)
+                        .fontWeight(.regular)
+                        .foregroundColor(.purple)
+
                     
                     ZStack {
                         MainRingView(volumeInPercent: $volumeInPercentage)

@@ -9,9 +9,9 @@ import SwiftUI
 import Charts
 
 enum StatsType: String, CaseIterable, Identifiable {
-    case week
-    case month
-    case year
+    case week = "semaine"
+    case month = "mois"
+    case year = "année"
     
     var id: String { self.rawValue }
 }
@@ -70,7 +70,6 @@ extension VolumeCount {
     ]
 }
 
-
 let weekData = [
     (conso: "Volume", data: VolumeCount.currentWeek),
     (conso: "Goal", data: VolumeCount.currentWeekGoal)
@@ -79,6 +78,7 @@ let weekData = [
 struct StatsView: View {
     
     @State var stateType: StatsType = .week
+
     
     var body: some View {
         NavigationStack {
@@ -113,45 +113,41 @@ struct StatsView: View {
                         
                         
                         
-                        HStack {
-                            VStack {
+                        HStack(spacing: 12) {
+                            VStack(spacing: 10) {
                                 Text("1500cl")
                                     .font(.title2)
                                     .foregroundColor(.purple)
-                                Text("Daily")
-                                    .foregroundColor(.gray)
-                                    .fontWeight(.medium)
-                                Text("Average")
+                                Text("Daily Average")
+                                    .lineLimit(2, reservesSpace: true)
+                                    .multilineTextAlignment(.center)
                                     .foregroundColor(.gray)
                                     .fontWeight(.medium)
                             }
-                            .padding(.horizontal, 10)
-                            VStack {
+                            VStack(spacing: 10) {
                                 Text("15")
                                     .foregroundColor(.purple)
                                     .font(.title2)
-                                Text("Daily")
-                                    .foregroundColor(.gray)
-                                    .fontWeight(.medium)
-                                Text("Streaks")
+                                Text("Daily Streaks")
+                                    .lineLimit(2, reservesSpace: true)
+                                    .multilineTextAlignment(.center)
                                     .foregroundColor(.gray)
                                     .fontWeight(.medium)
                             }
-                            .padding(.horizontal, 10)
                             
-                            VStack {
+                            VStack(spacing: 10) {
                                 Text("10")
                                     .foregroundColor(.purple)
                                     .font(.title2)
-                                Text("Weekly")
-                                    .foregroundColor(.gray)
-                                    .fontWeight(.medium)
-                                Text("Streaks")
+                                Text("Weekly Streaks")
+                                    .lineLimit(2, reservesSpace: true)
+                                    .multilineTextAlignment(.center)
                                     .foregroundColor(.gray)
                                     .fontWeight(.medium)
                             }
-                            .padding(.horizontal, 10)
                         }
+                        .minimumScaleFactor(0.8)
+
                     }
                 }
                 

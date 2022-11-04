@@ -12,12 +12,11 @@ var totalPages = 3
 struct WalkThroughScreen: View {
     
     @AppStorage("currentPage") var currentPage = 1
-
     
     var body: some View {
         ZStack {
             if currentPage == 1 {
-                ScreenView(image: "guy-drinking", title: "Step 1", detail: "", bgColor: Color.purple)
+                ScreenView(image: "guy-drinking", title: "Step 1", detail: "", bgColor: Color.white)
                     .transition(.scale)
             }
             
@@ -43,18 +42,18 @@ struct WalkThroughScreen: View {
             } label: {
                 Image(systemName: "chevron.right")
                     .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                     .frame(width: 60, height: 60)
-                    .background(Color.white)
+                    .background(Color.accentColor)
                     .clipShape(Circle())
                     .overlay {
                         ZStack {
                             Circle()
-                                .stroke(Color.black.opacity(0.04), lineWidth: 4)
+                                .stroke(Color.accentColor.opacity(0.04), lineWidth: 4)
                                 
                             Circle()
                                 .trim(from: 0, to: CGFloat(currentPage) / CGFloat(3))
-                                .stroke(Color.white, lineWidth: 4)
+                                .stroke(Color.accentColor, lineWidth: 4)
                                 .rotationEffect(.init(degrees: -90))
                         }
                         .padding(-15)
@@ -67,6 +66,7 @@ struct WalkThroughScreen: View {
 struct WalkThroughScreen_Previews: PreviewProvider {
     static var previews: some View {
         WalkThroughScreen()
+            .environment(\.locale, .init(identifier: "fr"))
     }
 }
 
@@ -84,10 +84,10 @@ struct ScreenView: View {
             HStack {
                 
                 if currentPage == 1 {
-                    Text("Hello Member!")
+                    Text("Welcome to")
                         .font(.title)
                         .fontWeight(.semibold)
-                        .kerning(1.4)
+                        
                 } else {
                     Button {
                         
@@ -116,7 +116,7 @@ struct ScreenView: View {
                 } label: {
                     Text("Skip")
                         .fontWeight(.semibold)
-                        .kerning(1.2)
+                        .foregroundColor(.accentColor)
                 }
             }
             .foregroundColor(.black)
@@ -124,11 +124,16 @@ struct ScreenView: View {
             
             Spacer(minLength: 0)
             
+            Text("Hydrate")
+                .font(Font.system(size: 50, weight: .bold, design: .rounded).leading(.loose))
+                .foregroundColor(.purple)
+            
+            
             Image(image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             
-            Text(title)
+            Text(LocalizedStringKey(title))
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.black)

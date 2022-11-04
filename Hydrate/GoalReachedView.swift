@@ -42,7 +42,7 @@ struct GoalReachedView: View {
                         VStack(spacing: 10) {
                             RollingText(font: .title2, weight: .bold, value: $nbOfDays)
                             
-                            Text("DAYS \n COMPETED")
+                            Text("DAYS \n COMPLETED")
                                 .font(.footnote)
                                 .lineLimit(2, reservesSpace: true)
                                 .multilineTextAlignment(.center)
@@ -53,7 +53,7 @@ struct GoalReachedView: View {
                         VStack(spacing: 10) {
                             RollingText(font: .title2, weight: .bold, value: $nbOfDays)
                             
-                            Text("DAILY \n STREAK")
+                            Text("DAILY \n STREAKS")
                                 .font(.footnote)
                                 .lineLimit(2, reservesSpace: true)
                                 .multilineTextAlignment(.center)

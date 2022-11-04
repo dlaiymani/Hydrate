@@ -15,7 +15,7 @@ struct CircleDayView: View {
     var body: some View {
         VStack {
             if currentDay {
-                Text(day)
+                Text(LocalizedStringKey(day))
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .frame(width: 20, height: 20)
@@ -23,7 +23,7 @@ struct CircleDayView: View {
                     .background(Color.purple)
                     .clipShape(Circle())
             } else {
-                Text(day)
+                Text(LocalizedStringKey(day))
                     .foregroundColor(.purple)
                     .font(.subheadline)
                     .fontWeight(.bold)

@@ -8,7 +8,24 @@
 import SwiftUI
 
 struct WeekView: View {
-    private var daysOfTheWeek = ["M", "T", "W", "T", "F", "S", "S"]
+   // private var daysOfTheWeek = ["M", "T", "W", "T", "F", "S", "S"]
+    private var daysOfTheWeek:[String] = []
+        
+    init() {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let dayOfWeek = calendar.component(.weekday, from: today)
+        let days = calendar.range(of: .weekday, in: .weekOfYear, for: today)!
+            .compactMap { calendar.date(byAdding: .day, value: $0 - dayOfWeek+1, to: today) }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "eeee"
+        for date in days {
+            let day = formatter.string(from: date)
+            print(day.first!)
+            daysOfTheWeek.append(day.first!.uppercased())
+        }
+    }
+    
     var body: some View {
         HStack {
             ForEach(daysOfTheWeek, id: \.self) { day in

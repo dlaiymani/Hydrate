@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  Hydrate
+
+  Created by David Laiymani on 04/11/2022.
+  
+*/
+
+"Containers" = "Récipients";
+"Trophy" = "Trophées";
+"week" = "Semaine";
+"Month" = "Mois";
+"Hydrate Days" = "Jours Hydratés";
+"Daily Average" = "Moyenne Journalière";
+"Daily Streaks" = "Jours Consécutifs";
+"Weekly Streaks" = "Semaines Consécutives";
+"Goal" = "Objectif";
+"Select a Container" = "Choisir un Récipient";
+"Favorites" = "Favoris";
+"Others" = "Autres";
+"MTWTFSS" = "LMMJVSD";
+"New Container" = "Nouveau Récipient";
+"Add" = "Ajouter";
+"Name" = "Nom";
+"Icon" = "Icône";
+"Color" = "Couleur";
+"Enter the name" = "Entrer un nom";
+"Enter the volume" = "Entrer le volume";
+"Congratulations 👏" = "Félicitations 👏";
+"Your daily goal is completed" = "Votre objectif du jour est atteint";
+"Keep Going" = "Continuez";
+"DAYS \n COMPLETED" = "JOURS \n AU TOTAL";
+"DAILY \n STREAKS" = "JOURS \n CONSÉCUTIFS";
+"Settings" = "Réglages";
+"Appearance" = "Design";
+"Weather" = "Météo";
+"Hydrate for Mac" = "Hydrate pour Mac";
+"Developer" = "Développeur";
+"What's New" = "Nouveautés";
+"Privacy Policy" = "Politique de confidentialité";
+"Web Site" = "Site Web";
+"Share App" = "Partager";
+"Skip" = "Passez";
+"Welcome to" = "Bienvenue sur";
+"Step 1" = "Étape 1";
+"Step 2" = "Étape 2";
+"Step 3" = "Étape 3";
+
