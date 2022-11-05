@@ -21,7 +21,6 @@ struct WeekView: View {
         formatter.dateFormat = "eeee"
         for date in days {
             let day = formatter.string(from: date)
-            print(day.first!)
             daysOfTheWeek.append(day.first!.uppercased())
         }
     }

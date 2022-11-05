@@ -31,6 +31,7 @@ struct ContainerView: View {
                             isShowingAlert = true
                         } else {
                             container.isFavorite.toggle()
+                            simpleSuccess()
                             PersistenceController.shared.save()
                         }
                     }
@@ -61,6 +62,11 @@ struct ContainerView: View {
         .alert(isPresented: $isShowingAlert, content: {
             Alert(title: Text("You must favorite at most 4 recipients 😎"))
         })
+    }
+    
+    func simpleSuccess() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }
 

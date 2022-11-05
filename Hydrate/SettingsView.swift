@@ -80,6 +80,19 @@ struct SettingsView: View {
                                 }
                                 .font(.body)
                             }
+                            
+                            NavigationLink {
+                                SoundsView()
+                            } label: {
+                                Label {
+                                    Text("Sounds and Vibrations")
+                                } icon: {
+                                    Image(systemName: "speaker.wave.3.fill")
+                                        .foregroundColor(.purple)
+                                }
+                                .font(.body)
+                            }
+                            
                             NavigationLink {
                                 EmptyView()
                             } label: {

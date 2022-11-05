@@ -10,6 +10,8 @@
 		AA16892328F6EE810033A47A /* GoalReachedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA16892228F6EE810033A47A /* GoalReachedView.swift */; };
 		AA26A36E28CC8CC30005D8B6 /* GridContainersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26A36D28CC8CC30005D8B6 /* GridContainersView.swift */; };
 		AA3E6EF62915705600EA82B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA3E6EF82915705600EA82B2 /* Localizable.strings */; };
+		AA3E6EFC29166AD400EA82B2 /* bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = AA3E6EFB29166AD400EA82B2 /* bell.wav */; };
+		AA3E6F002916752600EA82B2 /* SoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E6EFF2916752600EA82B2 /* SoundsView.swift */; };
 		AA41202928C77D8500A1E65A /* PlusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41202828C77D8500A1E65A /* PlusButtonView.swift */; };
 		AA5EBBFA28D0DBF000B2BD46 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */; };
 		AA5EBBFC28D1FA1100B2BD46 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */; };
@@ -45,6 +47,8 @@
 		AA26A36D28CC8CC30005D8B6 /* GridContainersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContainersView.swift; sourceTree = "<group>"; };
 		AA3E6EF72915705600EA82B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA3E6EF92915709D00EA82B2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA3E6EFB29166AD400EA82B2 /* bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bell.wav; sourceTree = "<group>"; };
+		AA3E6EFF2916752600EA82B2 /* SoundsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsView.swift; sourceTree = "<group>"; };
 		AA41202828C77D8500A1E65A /* PlusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonView.swift; sourceTree = "<group>"; };
 		AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -87,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA3E6EFA29166ACB00EA82B2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				AA3E6EFB29166AD400EA82B2 /* bell.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		AA7210EB28CCC7D10041779D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +141,7 @@
 		AAA4E3CE28C23CC000C366B9 /* Hydrate */ = {
 			isa = PBXGroup;
 			children = (
+				AA3E6EFA29166ACB00EA82B2 /* Sounds */,
 				AAA4E3CF28C23CC000C366B9 /* HydrateApp.swift */,
 				AA9EE39728D89FC10045D912 /* Extensions */,
 				AA9EE39428D771C90045D912 /* ViewModels */,
@@ -148,6 +161,7 @@
 				AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */,
 				AADA81C428FFD05B00B0912A /* RollingText.swift */,
 				AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */,
+				AA3E6EFF2916752600EA82B2 /* SoundsView.swift */,
 				AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */,
 				AAC706EE28EC71400044BBD0 /* AppearanceView.swift */,
 				AAA4E3E528C253CE00C366B9 /* StatsView.swift */,
@@ -240,6 +254,7 @@
 				AAA4E3D728C23CC100C366B9 /* Preview Assets.xcassets in Resources */,
 				AA3E6EF62915705600EA82B2 /* Localizable.strings in Resources */,
 				AAA4E3D428C23CC100C366B9 /* Assets.xcassets in Resources */,
+				AA3E6EFC29166AD400EA82B2 /* bell.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +287,7 @@
 				AAC706EF28EC71400044BBD0 /* AppearanceView.swift in Sources */,
 				AAA4E3E428C2535A00C366B9 /* TabsView.swift in Sources */,
 				AA16892328F6EE810033A47A /* GoalReachedView.swift in Sources */,
+				AA3E6F002916752600EA82B2 /* SoundsView.swift in Sources */,
 				AAA4E3E628C253CE00C366B9 /* StatsView.swift in Sources */,
 				AA7210EA28CCC7A20041779D /* Recipient.swift in Sources */,
 				AAA4E3D028C23CC000C366B9 /* HydrateApp.swift in Sources */,

@@ -8,8 +8,6 @@
 import SwiftUI
 
 
-
-
 struct AppearanceView: View {
     
     @AppStorage("colorScheme") private var colorScheme = 0
