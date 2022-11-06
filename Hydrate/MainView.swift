@@ -86,7 +86,7 @@ struct MainView: View {
                 .blur(radius: showCongratsSheet ? 20 : 0)
                 .disabled(showCongratsSheet)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .navigationBarLeading) {
                         Button {
                             showProfileSheet = true
                         } label: {

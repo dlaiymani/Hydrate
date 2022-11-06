@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ContainerView: View {
     
+    @AppStorage("sounds") private var soundIsOn = true
+    @AppStorage("vibrations") private var vibrationIsOn = true
+    
+    
     @ObservedObject var container: RecipientEntity // because it is a class!!!!
     @FetchRequest(sortDescriptors: [SortDescriptor(\.volume)], predicate: NSPredicate(format: "isFavorite == true")) var favoriteRecipients: FetchedResults<RecipientEntity>
     
@@ -31,7 +35,9 @@ struct ContainerView: View {
                             isShowingAlert = true
                         } else {
                             container.isFavorite.toggle()
-                            simpleSuccess()
+                            if vibrationIsOn {
+                                simpleSuccess()
+                            }
                             PersistenceController.shared.save()
                         }
                     }

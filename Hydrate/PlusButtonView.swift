@@ -10,6 +10,9 @@ import AVFAudio
 
 struct PlusButtonView: View {
     
+    @AppStorage("sounds") private var soundIsOn = true
+    @AppStorage("vibrations") private var vibrationIsOn = true
+    
     @FetchRequest(sortDescriptors: [SortDescriptor(\.volume)], predicate: NSPredicate(format: "isFavorite == true")) var recipients: FetchedResults<RecipientEntity>
     
     
@@ -26,7 +29,9 @@ struct PlusButtonView: View {
         ZStack {
             Button {
                 buttonPressed.toggle()
-                simpleSuccess()
+                if vibrationIsOn {
+                    simpleSuccess()
+                }
             } label: {
                 Image(systemName: "plus")
                     .rotationEffect(.degrees(buttonPressed ? 45 : 0))
@@ -69,6 +74,9 @@ struct PlusButtonView: View {
 
 struct GlassButton: View {
     
+    @AppStorage("sounds") private var soundIsOn = true
+    @AppStorage("vibrations") private var vibrationIsOn = true
+    
     @Binding var buttonPressed: Bool
     @Binding var volume: Double
     @State var recipient: RecipientEntity
@@ -81,7 +89,9 @@ struct GlassButton: View {
     var body: some View {
         Button {
             volume += recipient.volume
-            playSound()
+            if soundIsOn {
+                playSound()
+            }
             buttonPressed.toggle()
         } label: {
             VStack {
@@ -116,15 +126,6 @@ struct GlassButton: View {
         } catch {
             print(error)
         }
-        
-//        try AVAudioSession.sharedInstance().setCategory(
-//            AVAudioSession.Category.soloAmbient
-//        )
-//
-//        try AVAudioSession.sharedInstance().setActive(true)
-        
-        // Play a sound
-        
         
     }
 }
