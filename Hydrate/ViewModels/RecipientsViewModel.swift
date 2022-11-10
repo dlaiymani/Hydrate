@@ -38,11 +38,11 @@ class RecipientsViewModel: ObservableObject {
     
     func addProfile() {
         let newProfile = ProfileEntity(context: PersistenceController.shared.container.viewContext)
-        newProfile.goal = 1200
+       // newProfile.goal = 1200
         newProfile.weight = 70
         newProfile.activityLevel = 4
         newProfile.age = 40
-        newProfile.automaticGoal = true
+        newProfile.automaticGoal = false
         newProfile.sex = .F
         newProfile.units = .cl
         PersistenceController.shared.save()

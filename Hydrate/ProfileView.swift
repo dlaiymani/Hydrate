@@ -10,7 +10,6 @@ import SwiftUI
 enum Sex: Int, Identifiable {
     case F
     case M
-    case O
     
     var id: Self { self }
 }
@@ -22,8 +21,7 @@ extension Sex: CaseIterable {
             return "F"
         case .M:
             return "M"
-        case .O:
-            return "O"
+        
         }
     }
 }
@@ -63,6 +61,8 @@ extension ProfileEntity {
 
 struct ProfileView: View {
     
+    @AppStorage("currentPage") var currentPage = 1
+    
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: []) var profile: FetchedResults<ProfileEntity>
@@ -70,6 +70,8 @@ struct ProfileView: View {
     @State private var age: Int = 30
     @State private var sex: Sex = .F
     @State private var weight: Int = 70
+    @State private var height: Int = 170
+
     @State private var physcicalActivity: Int = 2
     @State private var unit: Units = .cl
     @State private var automaticGoal = true
@@ -82,69 +84,17 @@ struct ProfileView: View {
     private var sexTab = ["F", "M", "O"]
     var ages = Array(5...130)
     var weights = Array(20...200)
+    var heights = Array(120...280)
     
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.purple)
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
     }
     
     var body: some View {
         NavigationStack {
             List {
-                Section("Personal Info") {
-                    HStack {
-                        Text("Sex")
-                        
-                        Spacer()
-                        
-                        Picker("Sex", selection: $sex) {
-                            ForEach(Sex.allCases) { sex in
-                                Text(sex.label).tag(sex)
-                            }
-                        }
-                        .frame(width: 150)
-                    }
-                    .pickerStyle(.segmented)
-                    .font(.title3)
-                    .foregroundColor(.purple)
-                    
-                    
-                    Picker("Age", selection: $age) {
-                        ForEach(ages, id: \.self) {
-                            Text("\($0)")
-                        }
-                    }
-                    .font(.title3)
-                    .foregroundColor(.purple)
-                    
-                    Picker("Weight", selection: $weight) {
-                        ForEach(weights, id: \.self) {
-                            Text("\($0) kg")
-                        }
-                    }
-                    .font(.title3)
-                    .foregroundColor(.purple)
-                }
-                
-                Section {
-                    HStack {
-                        Text("Physical activity")
-                        
-                        Spacer()
-                        
-                        Picker("", selection: $physcicalActivity) {
-                            ForEach(1..<6) { physic in
-                                Text("\(physic)")
-                            }
-                        }
-                        .frame(width: 170)
-                    }
-                    .pickerStyle(.segmented)
-                    .font(.title3)
-                    .foregroundColor(.purple)
-                }
-                
-                Section {
+                Section("Units") {
                     HStack {
                         Text("Units")
                         
@@ -163,31 +113,140 @@ struct ProfileView: View {
                 }
                 
                 
-                Section("Goal") {
+                Section {
                     Toggle("Set automatic goal", isOn: $automaticGoal)
-                        .toggleStyle(SwitchToggleStyle(tint: .blue))
+                        .toggleStyle(SwitchToggleStyle(tint: .accentColor))
                         .font(.title3)
                         .foregroundColor(.blue)
-                    if !automaticGoal {
                         HStack {
                             Text("Goal")
                             Spacer()
-                            TextField("Enter your goal", text: $goal)
+                            
+                            TextField("Enter your goal",
+                                      text: $goal)
                                 .keyboardType(.decimalPad)
-                                .frame(width: 120)
+                                .frame(width: 140)
                                 .multilineTextAlignment(.trailing)
+                                .disabled(automaticGoal)
                             Text("cl")
                         }
                         .font(.title3)
                         .foregroundColor(.blue)
+                } header: {
+                    Text("Goal")
+                } footer: {
+                    Text("Please read the FAQ section for more information on how the automatic goal is computed.")
+                }
+
+                
+                if automaticGoal {
+                    Section("Personal Info") {
+                        HStack {
+                            Text("Sex")
+                            
+                            Spacer()
+                            
+                            Picker("Sex", selection: $sex) {
+                                ForEach(Sex.allCases) { sex in
+                                    Text(sex.label).tag(sex)
+                                }
+                            }
+                            .frame(width: 150)
+                            .onChange(of: sex, perform: {_ in
+                                if automaticGoal {
+                                    goal = "\(computeGoal())"
+                                }
+                            })
+                        }
+                        .pickerStyle(.segmented)
+                        .font(.title3)
+                        .foregroundColor(.purple)
+                        
+                        
+                        Picker("Age", selection: $age) {
+                            ForEach(ages, id: \.self) {
+                                Text("\($0)")
+                            }
+                        }
+                        .font(.title3)
+                        .foregroundColor(.purple)
+                        .onChange(of: age, perform: {_ in
+                            if automaticGoal {
+                                goal = "\(computeGoal())"
+                            }
+                        })
+                        
+                        Picker("Height", selection: $height) {
+                            ForEach(heights, id: \.self) {
+                                Text("\($0) cm")
+                            }
+                        }
+                        .font(.title3)
+                        .foregroundColor(.purple)
+                        .onChange(of: height, perform: {_ in
+                            if automaticGoal {
+                                goal = "\(computeGoal())"
+                            }
+                        })
+                        
+                        Picker("Weight", selection: $weight) {
+                            ForEach(weights, id: \.self) {
+                                Text("\($0) kg")
+                            }
+                        }
+                        .font(.title3)
+                        .foregroundColor(.purple)
+                        .onChange(of: weight, perform: {_ in
+                            if automaticGoal {
+                                goal = "\(computeGoal())"
+                            }
+                        })
                     }
+                    
+                    Section {
+                        HStack {
+                            Text("Physical activity")
+                            
+                            Spacer()
+                            
+                            Picker("", selection: $physcicalActivity) {
+                                ForEach(1..<6) { physic in
+                                    Text("\(physic)")
+                                }
+                            }
+                            .frame(width: 170)
+                            .onChange(of: physcicalActivity, perform: {_ in
+                                if automaticGoal {
+                                    goal = "\(computeGoal())"
+                                }
+                            })
+                        }
+                        .pickerStyle(.segmented)
+                        .font(.title3)
+                        .foregroundColor(.purple)
+                    }
+                    
                 }
             }
+            .onChange(of: automaticGoal, perform: { newValue in
+                if newValue {
+                    goal = "\(computeGoal())"
+                } else {
+                    if let goalDouble = profile.first?.goal {
+                        if goalDouble == 0.0 {
+                            self.goal = ""
+                        } else {
+                            self.goal = "\(goalDouble)"
+                        }
+                    } else {
+                        self.goal = ""
+                    }
+                }
+            })
             .navigationTitle("Profile")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        print(goal.count)
                         if (goal.count == 0 && !automaticGoal) {
                             alertMessage = "Your must specify a value for your goal 💪"
                             isShowingAlert = true
@@ -219,6 +278,7 @@ struct ProfileView: View {
                                 }
                                 
                             }
+                            currentPage = 4
                             dismiss()
                         }
                         
@@ -254,12 +314,45 @@ struct ProfileView: View {
                 }
             }
             
+            if automaticGoal {
+                goal = "\(computeGoal())"
+            }
+            
         }
         .onDisappear {
           
         }
     }
     
+    
+    func computeGoal() -> Int {
+        var bmr: Double = 0.0
+        var tdee: Double = 0.0
+        
+        if sex == .M {
+            bmr = 66 + (13.7 * Double(weight)) + (5 * Double(height)) - (6.8 * Double(age))
+        } else {
+            bmr = 655 + (9.6 * Double(weight)) + (1.8 * Double(height)) - (4.7 * Double(age))
+        }
+        
+        switch physcicalActivity {
+        case 1:
+            tdee = bmr * 1.2
+        case 2:
+            tdee = bmr * 1.375
+        case 3:
+            tdee = bmr * 1.55
+        case 4:
+            tdee = bmr * 1.725
+        case 5:
+            tdee = bmr * 1.9
+        default:
+            tdee = bmr
+
+        }
+        
+        return Int(tdee) / 10
+    }
     
 }
 

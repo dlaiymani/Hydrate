@@ -94,7 +94,7 @@ struct SettingsView: View {
                             }
                             
                             NavigationLink {
-                                EmptyView()
+                                NotificationsView()
                             } label: {
                                 Label {
                                     Text("Notifications")

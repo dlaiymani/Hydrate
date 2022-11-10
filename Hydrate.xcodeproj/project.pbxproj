@@ -40,6 +40,7 @@
 		AAC8369D28E5CC2B003F64F3 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */; };
 		AADA81C528FFD05B00B0912A /* RollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADA81C428FFD05B00B0912A /* RollingText.swift */; };
 		AADA81C828FFF0C500B0912A /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AADA81C728FFF0C500B0912A /* ConfettiSwiftUI */; };
+		AAF9BED82918E8DC0070D615 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BED72918E8DC0070D615 /* NotificationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		AAC8369A28E5BADB003F64F3 /* GridContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContainerCell.swift; sourceTree = "<group>"; };
 		AAC8369C28E5CC2B003F64F3 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		AADA81C428FFD05B00B0912A /* RollingText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollingText.swift; sourceTree = "<group>"; };
+		AAF9BED72918E8DC0070D615 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				AADA81C428FFD05B00B0912A /* RollingText.swift */,
 				AA5EBBF928D0DBF000B2BD46 /* SettingsView.swift */,
 				AA3E6EFF2916752600EA82B2 /* SoundsView.swift */,
+				AAF9BED72918E8DC0070D615 /* NotificationsView.swift */,
 				AA5EBBFB28D1FA1100B2BD46 /* ProfileView.swift */,
 				AAC706EE28EC71400044BBD0 /* AppearanceView.swift */,
 				AAA4E3E528C253CE00C366B9 /* StatsView.swift */,
@@ -282,6 +285,7 @@
 				AA9EE38A28D315C30045D912 /* ConfettiModifier.swift in Sources */,
 				AAC8369D28E5CC2B003F64F3 /* ColorPickerView.swift in Sources */,
 				AAA4E3D228C23CC000C366B9 /* MainView.swift in Sources */,
+				AAF9BED82918E8DC0070D615 /* NotificationsView.swift in Sources */,
 				AAA4E3E228C2491000C366B9 /* MainRingView.swift in Sources */,
 				AAC8369B28E5BADB003F64F3 /* GridContainerCell.swift in Sources */,
 				AAC706EF28EC71400044BBD0 /* AppearanceView.swift in Sources */,

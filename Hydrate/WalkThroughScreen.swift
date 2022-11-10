@@ -21,15 +21,13 @@ struct WalkThroughScreen: View {
             }
             
             if currentPage == 2 {
-                ScreenView(image: "guy-drinking", title: "Step 2", detail: "", bgColor: Color.yellow)
+                ScreenView(image: "guy-drinking", title: "Step 2", detail: "", bgColor: Color.white)
                     .transition(.scale)
 
             }
             
             if currentPage == 3 {
-                ScreenView(image: "guy-drinking", title: "Step 3", detail: "", bgColor: Color.pink)
-                    .transition(.scale)
-
+                ProfileView()
             }
            
         }
@@ -43,7 +41,7 @@ struct WalkThroughScreen: View {
                 Image(systemName: "chevron.right")
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(.white)
-                    .frame(width: 60, height: 60)
+                    .frame(width: 40, height: 40)
                     .background(Color.accentColor)
                     .clipShape(Circle())
                     .overlay {
@@ -56,9 +54,12 @@ struct WalkThroughScreen: View {
                                 .stroke(Color.accentColor, lineWidth: 4)
                                 .rotationEffect(.init(degrees: -90))
                         }
-                        .padding(-15)
+                        .padding(-10)
                     }
-            }, alignment: .bottom)
+            }
+                .disabled(currentPage == 3)
+                .opacity(currentPage == 3 ? 0 : 1)
+            , alignment: .bottom)
         
     }
 }
@@ -69,6 +70,7 @@ struct WalkThroughScreen_Previews: PreviewProvider {
             .environment(\.locale, .init(identifier: "fr"))
     }
 }
+
 
 struct ScreenView: View {
     
@@ -108,16 +110,16 @@ struct ScreenView: View {
                 
                 
                 Spacer()
-                
-                Button {
-                    withAnimation(.easeInOut) {
-                        currentPage = 4
-                    }
-                } label: {
-                    Text("Skip")
-                        .fontWeight(.semibold)
-                        .foregroundColor(.accentColor)
-                }
+//
+//                Button {
+//                    withAnimation(.easeInOut) {
+//                        currentPage = 4
+//                    }
+//                } label: {
+//                    Text("Skip")
+//                        .fontWeight(.semibold)
+//                        .foregroundColor(.accentColor)
+//                }
             }
             .foregroundColor(.black)
             .padding()
